@@ -5,8 +5,11 @@ import { ThemeType } from './type';
 
 type StateType = {
   count: number;
+  showShop: boolean;
   increase: () => void;
   decrease: () => void;
+  closeShop: () => void;
+  openShop: () => void;
   toggleTheme: () => void;
   setTheme: (theme: ThemeType) => void;
   theme: ThemeType
@@ -26,9 +29,12 @@ const getInitialTheme = async (): Promise<ThemeType> => {
 
 const useAppStore = create<StateType>((set) => ({
   count: 0,
+  showShop: false,
   theme: 'lightTheme',
   increase: () => set((state) => ({ count: state.count + 1 })),
   decrease: () => set((state) => ({ count: state.count - 1 })),
+  openShop: () => set(() => ({ showShop: true })),
+  closeShop: () => set(() => ({ showShop: false })),
   toggleTheme: () => set((state) => {
     const newTheme = state.theme === 'lightTheme' ? 'darkTheme' : 'lightTheme';
     setCookie('theme', newTheme);

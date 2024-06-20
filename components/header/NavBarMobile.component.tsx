@@ -11,7 +11,7 @@ import { MdAccountCircle, MdOutlineWbSunny } from 'react-icons/md'
 
 const NavBarMobile = () => {
     const [image, setImage] = useState(mangaShopLight)
-    const { theme, toggleTheme } = useAppStore()
+    const { theme, toggleTheme, openShop } = useAppStore()
 
     useEffect(() => {
         if (theme === 'darkTheme') {
@@ -27,7 +27,7 @@ const NavBarMobile = () => {
     return (
         <div className="flex items-center justify-between gap-3 h-full w-full px-8 max-md:px-4">
             <div className='flex gap-1 items-center justify-center max-md:pl-2 active:scale-95 transition ease-in-out duration-150'>
-                <button className='flex gap-1 items-center justify-center'>
+                <button className='flex gap-1 items-center justify-center' onClick={openShop}>
                     <IoIosMenu size={40} />
                 </button>
             </div>
