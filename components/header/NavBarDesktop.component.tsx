@@ -9,7 +9,7 @@ import { IoIosMenu } from 'react-icons/io'
 import { LuMoon } from 'react-icons/lu'
 import { MdAccountCircle, MdOutlineWbSunny } from 'react-icons/md'
 
-const NavBar = () => {
+const NavBarDesktop = () => {
     const [image, setImage] = useState(mangaShopLight)
     const { theme, toggleTheme } = useAppStore()
 
@@ -25,14 +25,17 @@ const NavBar = () => {
     use
 
     return (
-        <div className="relative flex items-center justify-between gap-3 h-full w-full px-8 max-md:px-4">
+        <div className="flex items-center justify-between gap-3 h-full w-full px-8 max-md:px-4">
             <div className="flex items-center gap-3">
                 <div className=" max-md:hidden pr-2">
                     <Image src={image} alt="Manga Shop" height={60} />
                 </div>
-                <div className='flex gap-1 items-center justify-center max-md:pl-2'>
-                    <IoIosMenu size={40} />
-                    <p className="font-bold max-md:hidden">Shop</p>
+                <div className='flex gap-1 items-center justify-center max-md:pl-2 hover:scale-105 transition ease-in-out duration-150'>
+                    <button className='flex gap-1 items-center justify-center'>
+                        <IoIosMenu size={40} />
+                        <p className="font-bold max-md:hidden cursor-pointer max-lg:hidden">Shop</p>
+                    </button>
+
                 </div>
             </div>
 
@@ -45,13 +48,8 @@ const NavBar = () => {
 
 
             <div className='flex gap-3 items-center'>
-                {/* <div className='flex gap-1 items-center justify-center'>
-                    <button onClick={toggleTheme} className='transition duration-150 hover:scale-105'>
-                        {theme === 'darkTheme' ? <MdOutlineWbSunny size={35} /> : <LuMoon size={35} />}
-                    </button>
-                </div> */}
-                <label className="swap swap-rotate">
-                    <input type="checkbox" onChange={toggleTheme} checked={theme === 'darkTheme'} className="" />
+                <label className="swap swap-rotate hover:scale-105 transition ease-in-out duration-150">
+                    <input type="checkbox" onChange={toggleTheme} checked={theme === 'darkTheme'} />
                     <div className="swap-off flex items-center">
                         <LuMoon size={35} />
                     </div>
@@ -60,7 +58,7 @@ const NavBar = () => {
 
                     </div>
                 </label>
-                <div className='flex items-center justify-center'>
+                <div className='flex items-center justify-center hover:scale-105 transition ease-in-out duration-150'>
                     <button><MdAccountCircle size={40} /></button>
 
                 </div>
@@ -70,7 +68,7 @@ const NavBar = () => {
                             <span className="indicator-item badge badge-secondary">0</span>
                             <CiShoppingBasket size={40} className='group group-hover:scale-110 transition ease-in-out duration-150' />
                         </div>
-                        <p className='font-bold text-accent'> price €</p>
+                        <p className='font-bold text-accent max-lg:hidden'> price €</p>
                     </button>
                 </div>
             </div>
@@ -78,4 +76,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default NavBarDesktop

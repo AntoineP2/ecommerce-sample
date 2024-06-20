@@ -12,7 +12,7 @@ const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const { theme } = useAppStore();
 
   return (
-    <div data-theme={theme} className="h-screen">{children}</div>
+    <div data-theme={theme} className="min-h-full">{children}</div>
   );
 }
 
