@@ -1,8 +1,8 @@
 import { getCookie, setCookie } from 'cookies-next';
 import { useEffect } from 'react';
 import { create } from 'zustand'
+import { ThemeType } from './type';
 
-type ThemeType = 'light' | 'dark' | 'cupcake';
 type StateType = {
   count: number;
   increase: () => void;
@@ -16,21 +16,21 @@ const getInitialTheme = async (): Promise<ThemeType> => {
   const savedTheme = await getCookie('theme');
 
   // Vérification stricte du type de thème
-  if (savedTheme === 'light' || savedTheme === 'dark' || savedTheme === 'cupcake') {
+  if (savedTheme === 'lightTheme' || savedTheme === 'darkTheme') {
     return savedTheme;
   }
 
   // Retourner le thème par défaut si le thème n'est pas valide
-  return 'light';
+  return 'lightTheme';
 };
 
 const useAppStore = create<StateType>((set) => ({
   count: 0,
-  theme: 'light',
+  theme: 'lightTheme',
   increase: () => set((state) => ({ count: state.count + 1 })),
   decrease: () => set((state) => ({ count: state.count - 1 })),
   toggleTheme: () => set((state) => {
-    const newTheme = state.theme === 'light' ? 'dark' : 'light';
+    const newTheme = state.theme === 'lightTheme' ? 'darkTheme' : 'lightTheme';
     setCookie('theme', newTheme);
     return { theme: newTheme };
   }),
