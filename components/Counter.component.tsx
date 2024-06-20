@@ -1,10 +1,10 @@
 "use client"
-import useAppStore from '@/lib/appStore';
+import { useAppStore } from '@/lib/appStore';
 import React from 'react';
 
 const Counter: React.FC = () => {
   const { count, increase, decrease, theme, toggleTheme } = useAppStore();
-  
+
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="p-4 rounded shadow-md">
@@ -18,9 +18,9 @@ const Counter: React.FC = () => {
           </button>
         </div>
         <div>
-        <button className="btn btn.primary" onClick={toggleTheme}>
+          <button className="btn btn.primary" onClick={toggleTheme}>
             {theme === 'light' ? 'Dark' : 'Light'} Mode
-        </button>
+          </button>
         </div>
       </div>
     </div>
