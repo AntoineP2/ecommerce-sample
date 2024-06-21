@@ -1,13 +1,13 @@
 import React from 'react';
 import Counter from '@/components/Counter.component';
 
-const CounterPage: React.FC = () => {
-  
+const UserAccountPage: React.FC = () => {
+
   return (
     <div>
-        <Counter />
+      <Counter />
     </div>
   );
 };
 
-export default CounterPage;
+export default UserAccountPage;

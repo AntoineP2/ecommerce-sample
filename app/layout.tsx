@@ -20,10 +20,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} h-screen`}>
         <ThemeProvider>
-          <div className="w-screen h-[70px] shadow-lg bg-base-100 mb-20 md:py-5 fixed">
+          <div className="w-screen h-[70px] shadow-lg bg-base-100 mb-20 md:py-5 fixed z-50">
             <Header />
           </div>
-          <div className="pt-[5%]">
+          <div className="pt-[5%] z-30">
             {children}
           </div>
         </ThemeProvider>

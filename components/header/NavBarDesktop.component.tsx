@@ -3,6 +3,7 @@ import { useAppStore } from '@/lib/appStore'
 import mangaShopDark from '@/public/mangaShop-dark.png'
 import mangaShopLight from '@/public/mangaShop-light.png'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { use, useEffect, useState } from 'react'
 import { CiShoppingBasket } from 'react-icons/ci'
 import { IoIosMenu } from 'react-icons/io'
@@ -12,6 +13,7 @@ import { MdAccountCircle, MdOutlineWbSunny } from 'react-icons/md'
 const NavBarDesktop = () => {
     const [image, setImage] = useState(mangaShopLight)
     const { theme, toggleTheme, openShop } = useAppStore()
+    const router = useRouter()
 
     useEffect(() => {
         if (theme === 'darkTheme') {
@@ -22,14 +24,13 @@ const NavBarDesktop = () => {
 
     }, [theme])
 
-    use
 
     return (
         <div className="flex items-center justify-between gap-3 h-full w-full px-8 max-md:px-4">
             <div className="flex items-center gap-3">
-                <div className="pr-2">
+                <button className="pr-2" onClick={() => router.push("/")}>
                     <Image src={image} alt="Manga Shop" height={60} />
-                </div>
+                </button>
                 <div className='flex gap-1 items-center justify-center max-md:pl-2 hover:scale-105 transition ease-in-out duration-150'>
                     <button className='flex gap-1 items-center justify-center' onClick={openShop}>
                         <IoIosMenu size={40} />
@@ -59,7 +60,9 @@ const NavBarDesktop = () => {
                     </div>
                 </label>
                 <div className='flex items-center justify-center hover:scale-105 transition ease-in-out duration-150'>
-                    <button><MdAccountCircle size={40} /></button>
+                    <button onClick={() => router.push("/compte-utilisateur")}>
+                        <MdAccountCircle size={40} />
+                    </button>
 
                 </div>
                 <div>

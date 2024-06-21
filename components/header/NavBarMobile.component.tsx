@@ -10,10 +10,12 @@ import { LuMoon } from 'react-icons/lu'
 import { MdAccountCircle, MdOutlineWbSunny } from 'react-icons/md'
 import mangaShopMobil from '@/public/mangaShopMobil.png'
 import mangaShopMobilDark from '@/public/mangaShopMobil-dark.png'
+import { useRouter } from 'next/navigation'
 
 const NavBarMobile = () => {
     const [image, setImage] = useState(mangaShopMobil)
     const { theme, toggleTheme, openShop } = useAppStore()
+    const router = useRouter()
 
     useEffect(() => {
         if (theme === 'darkTheme') {
@@ -28,7 +30,7 @@ const NavBarMobile = () => {
         <div className="flex items-center justify-between gap-3 h-full w-full px-4">
 
             <div className='flex items-center justify-center pl-2 active:scale-95 transition ease-in-out duration-150'>
-                <button className='flex items-center justify-center'>
+                <button className='flex items-center justify-center' onClick={() => router.push("/")}>
                     <Image src={image} alt="Manga Shop" height={35} />
                 </button>
             </div>
@@ -57,7 +59,9 @@ const NavBarMobile = () => {
                 </div>
             </label>
             <div className='flex items-center justify-center active:scale-95 transition ease-in-out duration-150'>
-                <button><MdAccountCircle size={40} /></button>
+                <button onClick={() => router.push("/compte-utilisateur")}>
+                    <MdAccountCircle size={40} />
+                </button>
             </div>
             <div>
                 <button className="flex gap-3 items-center justify-center group">
