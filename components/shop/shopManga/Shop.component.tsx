@@ -18,8 +18,6 @@ const Shop = () => {
             <div className="flex justify-center items-center">
                 <h1 className="font-bold md:text-xl text-lg">Rayon {storeSection?.title}</h1>
             </div>
-
-
         </>
     )
 }
