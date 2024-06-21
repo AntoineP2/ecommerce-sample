@@ -11,36 +11,43 @@ export const StoreSectionIconList: StoreSectionIconType[] = [
     {
         id: 1,
         image: narutoImage,
-        title: 'Naruto'
+        title: 'Naruto',
+        path: '/magasin/naruto',
     },
     {
         id: 2,
         image: onePieceImage,
-        title: 'One Piece'
+        title: 'One Piece',
+        path: '/magasin/one-piece',
     },
     {
         id: 3,
         image: dragonBallImage,
-        title: 'Dragon Ball'
+        title: 'Dragon Ball',
+        path: '/magasin/dragon-ball',
     },
     {
         id: 4,
         image: bleachImage,
-        title: 'Bleach'
+        title: 'Bleach',
+        path: '/magasin/bleach',
     },
     {
         id: 5,
         image: blackCloverImage,
-        title: 'Black Clover'
+        title: 'Black Clover',
+        path: '/magasin/black-clover',
     },
     {
         id: 6,
         image: demonSlayerImage,
-        title: 'Demon Slayer'
+        title: 'Demon Slayer',
+        path: '/magasin/demon-slayer',
     },
     {
         id: 7,
         image: soloLevelingImage,
-        title: 'Solo Leveling'
+        title: 'Solo Leveling',
+        path: '/magasin/solo-leveling',
     }
 ]

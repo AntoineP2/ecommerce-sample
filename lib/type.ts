@@ -6,4 +6,5 @@ export type StoreSectionIconType = {
     id: number;
     image: StaticImageData;
     title: string;
+    path: string;
 };
