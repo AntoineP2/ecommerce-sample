@@ -27,7 +27,7 @@ const NavBarDesktop = () => {
     return (
         <div className="flex items-center justify-between gap-3 h-full w-full px-8 max-md:px-4">
             <div className="flex items-center gap-3">
-                <div className=" max-md:hidden pr-2">
+                <div className="pr-2">
                     <Image src={image} alt="Manga Shop" height={60} />
                 </div>
                 <div className='flex gap-1 items-center justify-center max-md:pl-2 hover:scale-105 transition ease-in-out duration-150'>

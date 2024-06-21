@@ -20,6 +20,10 @@ const Header = () => {
                     <button className='absolute flex items-center justify-center top-5 right-5 max-md:active:scale-95 md:hover:scale-105 transition duration-150 ease-in-out'>
                         <IoMdCloseCircle size={40} className="text-error" onClick={closeShop} />
                     </button>
+                    <div className="flex justify-center items-center mt-10">
+                        <h1 className="uppercase font-bold md:text-xl">Nos Rayons</h1>
+                    </div>
+
                 </div>
             </div>
             }

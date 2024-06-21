@@ -8,31 +8,39 @@ import { CiShoppingBasket } from 'react-icons/ci'
 import { IoIosMenu, IoIosSearch } from 'react-icons/io'
 import { LuMoon } from 'react-icons/lu'
 import { MdAccountCircle, MdOutlineWbSunny } from 'react-icons/md'
+import mangaShopMobil from '@/public/mangaShopMobil.png'
+import mangaShopMobilDark from '@/public/mangaShopMobil-dark.png'
 
 const NavBarMobile = () => {
-    const [image, setImage] = useState(mangaShopLight)
+    const [image, setImage] = useState(mangaShopMobil)
     const { theme, toggleTheme, openShop } = useAppStore()
 
     useEffect(() => {
         if (theme === 'darkTheme') {
-            setImage(mangaShopDark)
+            setImage(mangaShopMobilDark)
         } else {
-            setImage(mangaShopLight)
+            setImage(mangaShopMobil)
         }
 
     }, [theme])
 
-    use
-
     return (
-        <div className="flex items-center justify-between gap-3 h-full w-full px-8 max-md:px-4">
-            <div className='flex gap-1 items-center justify-center max-md:pl-2 active:scale-95 transition ease-in-out duration-150'>
-                <button className='flex gap-1 items-center justify-center' onClick={openShop}>
-                    <IoIosMenu size={40} />
+        <div className="flex items-center justify-between gap-3 h-full w-full px-4">
+
+            <div className='flex items-center justify-center pl-2 active:scale-95 transition ease-in-out duration-150'>
+                <button className='flex items-center justify-center'>
+                    <Image src={image} alt="Manga Shop" height={35} />
                 </button>
             </div>
 
-            <div className='flex gap-1 items-center justify-center max-md:pl-2 active:scale-95 transition ease-in-out duration-150'>
+            <div className='flex gap-1 items-center justify-center pl-2 active:scale-95 transition ease-in-out duration-150'>
+                <button className='flex gap-1 items-center justify-center' onClick={openShop}>
+                    <IoIosMenu size={40} />
+                </button>
+
+            </div>
+
+            <div className='flex gap-1 items-center justify-center pl-2 active:scale-95 transition ease-in-out duration-150'>
                 <button className='flex gap-1 items-center justify-center'>
                     <IoIosSearch size={40} />
                 </button>
