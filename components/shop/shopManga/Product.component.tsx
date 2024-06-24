@@ -35,7 +35,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
             </div>
             <div className='flex justify-between items-center absolute bottom-2 left-0 w-full pb-1 px-5'>
                 <div>
-                    <p className="font-bold text-lg text-success"> 69,99 €</p>
+                    <p className="font-bold text-lg text-success"> {product.price} €</p>
                 </div>
                 <div className="flex justify-center items-center gap-3">
                     <button className="max-md:active:scale-95 md:hover:scale-105 transition duration-150 ease-in-out">
