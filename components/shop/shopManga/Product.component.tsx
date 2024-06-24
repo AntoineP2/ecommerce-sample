@@ -31,7 +31,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
                 <p className="text-gray-200">({product.votes})</p>
             </div>
             <div>
-                <p className=""><span className='font-bold text-accent'>{product.title}</span>, {product.description}</p>
+                <p className="text-gray-200"><span className='font-bold text-accent'>{product.title}</span>, {product.description}</p>
             </div>
             <div className='flex justify-between items-center absolute bottom-2 left-0 w-full pb-1 px-5'>
                 <div>
