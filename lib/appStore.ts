@@ -76,7 +76,7 @@ const useInitializeTheme = () => {
 };
 
 // Cette methode va supprimer un nombre définit d'élément dans le panier selon l'id ciblé
-const removeElement = (cartItemList: ProductType[], cartItem:ProductType, number: number): cartItemList[] => {
+const removeElement = (cartItemList: ProductType[], cartItem:ProductType, number: number): ProductType[] => {
   const itemList = cartItemList.filter(item => item.id === cartItem.id).slice(number);
   const itemListUpdate = [...cartItemList.filter(item => item.id !== cartItem.id), ...itemList]
   return itemListUpdate;
