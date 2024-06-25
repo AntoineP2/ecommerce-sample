@@ -26,14 +26,17 @@ useEffect(() => {
 }, [cartItemList])
 
   return (
-    <div>
-      {cartItemsListGrouped.map((item) => 
+    <>
+    <div className="flex flex-col justify-center items-center gap-3">
+    {cartItemsListGrouped.map((item) => 
       <div key={item.id}>
         <CartItem cartItem={item} />
         </div>
       )}
-        
     </div>
+
+        
+    </>
   )
 }
 

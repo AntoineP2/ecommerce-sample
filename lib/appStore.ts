@@ -57,7 +57,7 @@ const useAppStore = create<StateType>((set) => ({
   })),
   removeCartItem : (cartItem: ProductType) => set((state) => 
     ({
-      cartItemList : state.cartItemList.filter(item => item.id !== cartItem.id),
+      cartItemList : removeElement(state.cartItemList, cartItem, 1),
       price: parseFloat((state.price - cartItem.price).toFixed(2))
     })),
 
@@ -74,6 +74,13 @@ const useInitializeTheme = () => {
     initializeTheme();
   }, [setTheme]);
 };
+
+// Cette methode va supprimer un nombre définit d'élément dans le panier selon l'id ciblé
+const removeElement = (cartItemList: ProductType[], cartItem:ProductType, number: number): cartItemList[] => {
+  const itemList = cartItemList.filter(item => item.id === cartItem.id).slice(number);
+  const itemListUpdate = [...cartItemList.filter(item => item.id !== cartItem.id), ...itemList]
+  return itemListUpdate;
+}
 
 
 export { useAppStore, useInitializeTheme };
