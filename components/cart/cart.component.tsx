@@ -10,7 +10,7 @@ const Cart = () => {
   const [ cartItemsListGrouped, setCartItemsListGrouped ] = useState<ProductCartType[]>([])
 
   // Methode pour groupe les items avec le même ID
-  const groupedCartItems = cartItemList.reduce((acc, item) => {
+  const groupedCartItems = cartItemList.reduce<ProductCartType>((acc, item) => {
     const key = item.id;
     if (!acc[key]) {
         acc[key] = { ...item, quantity: 0 };
