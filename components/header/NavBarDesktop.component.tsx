@@ -12,7 +12,7 @@ import { MdAccountCircle, MdOutlineWbSunny } from 'react-icons/md'
 
 const NavBarDesktop = () => {
     const [image, setImage] = useState(mangaShopLight)
-    const { theme, toggleTheme, openShop } = useAppStore()
+    const { theme, cartItemList, price, toggleTheme, openShop } = useAppStore()
     const router = useRouter()
 
     useEffect(() => {
@@ -66,12 +66,12 @@ const NavBarDesktop = () => {
 
                 </div>
                 <div>
-                    <button className="flex gap-3 items-center justify-center group">
+                    <button className="flex gap-3 items-center justify-center group" onClick={() => router.push("/panier")}>
                         <div className="indicator">
-                            <span className="indicator-item badge badge-secondary">0</span>
+                            <span className="indicator-item badge badge-secondary">{cartItemList.length}</span>
                             <CiShoppingBasket size={40} className='group group-hover:scale-110 transition ease-in-out duration-150' />
                         </div>
-                        <p className='font-bold text-accent max-lg:hidden'> price €</p>
+                        <p className='font-bold text-accent max-lg:hidden'> {price} €</p>
                     </button>
                 </div>
             </div>

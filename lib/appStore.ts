@@ -1,17 +1,21 @@
 import { getCookie, setCookie } from 'cookies-next';
 import { useEffect } from 'react';
 import { create } from 'zustand'
-import { ThemeType } from './type';
+import { ProductType, ThemeType } from './type';
 
 type StateType = {
   count: number;
   showShop: boolean;
+  price: number;
   increase: () => void;
   decrease: () => void;
   closeShop: () => void;
   openShop: () => void;
   toggleTheme: () => void;
   setTheme: (theme: ThemeType) => void;
+  cartItemList: ProductType[];
+  setCartItemList: (cartItem: ProductType) => void;
+  removeCartItem: (cartItem: ProductType) => void;
   theme: ThemeType
 }
 
@@ -29,8 +33,10 @@ const getInitialTheme = async (): Promise<ThemeType> => {
 
 const useAppStore = create<StateType>((set) => ({
   count: 0,
+  price: 0,
   showShop: false,
   theme: 'lightTheme',
+  cartItemList: [],
   increase: () => set((state) => ({ count: state.count + 1 })),
   decrease: () => set((state) => ({ count: state.count - 1 })),
   openShop: () => set(() => ({ showShop: true })),
@@ -44,6 +50,11 @@ const useAppStore = create<StateType>((set) => ({
     setCookie('theme', theme);
     return { theme };
   }),
+  setCartItemList : (cartItem: ProductType) => set((state) => 
+    ({
+      cartItemList : [...state.cartItemList, cartItem],
+      price: parseFloat((state.price + cartItem.price).toFixed(2))
+  })),
 }));
 
 const useInitializeTheme = () => {
@@ -57,5 +68,6 @@ const useInitializeTheme = () => {
     initializeTheme();
   }, [setTheme]);
 };
+
 
 export { useAppStore, useInitializeTheme };
