@@ -2,12 +2,12 @@
 
 import { useAppStore } from "@/lib/appStore"
 import CartItem from "./cartItem.component"
-import { ProductType } from "@/lib/type"
+import { ProductCartType, ProductType } from "@/lib/type"
 import { useEffect, useState } from "react"
 
 const Cart = () => {
   const { cartItemList } = useAppStore()
-  const [ cartItemsListGrouped, setCartItemsListGrouped ] = useState<ProductType[]>([])
+  const [ cartItemsListGrouped, setCartItemsListGrouped ] = useState<ProductCartType[]>([])
 
   // Methode pour groupe les items avec le même ID
   const groupedCartItems = cartItemList.reduce((acc, item) => {

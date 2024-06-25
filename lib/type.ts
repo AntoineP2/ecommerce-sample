@@ -29,3 +29,15 @@ export type ProductType = {
     votes: number;
     imagePath: string;
 };
+
+export type ProductCartType = {
+    id: number;
+    type: ProductEnum;
+    title: string;
+    price: number;
+    description: string;
+    rating: number;
+    votes: number;
+    imagePath: string;
+    quantity: number;
+};
