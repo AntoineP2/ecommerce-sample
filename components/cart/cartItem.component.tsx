@@ -16,13 +16,13 @@ const CartItem: React.FC<CartItemProps> = ({cartItem}) => {
   const { cartItemList, setCartItemList, removeCartItem } = useAppStore()
 
   const handleAddItem = () => {
-    const ItemToAdd = cartItemList.find(item => item.id === cartItem.id)
+    const ItemToAdd:ProductType = cartItemList.find(item => item.id === cartItem.id)
     setCartItemList(ItemToAdd)
     toast.success(`${cartItem.title} a été ajouté au panier`)
   }
 
   const handleRemoveItem = () => {
-    const ItemToRemove = cartItemList.find(item => item.id === cartItem.id)
+    const ItemToRemove:ProductType = cartItemList.find(item => item.id === cartItem.id)
     removeCartItem(ItemToRemove)
     toast.success(`${cartItem.title} a été retiré du panier`)
   }
