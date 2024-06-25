@@ -55,6 +55,12 @@ const useAppStore = create<StateType>((set) => ({
       cartItemList : [...state.cartItemList, cartItem],
       price: parseFloat((state.price + cartItem.price).toFixed(2))
   })),
+  removeCartItem : (cartItem: ProductType) => set((state) => 
+    ({
+      cartItemList : state.cartItemList.filter(item => item.id !== cartItem.id),
+      price: parseFloat((state.price - cartItem.price).toFixed(2))
+    })),
+
 }));
 
 const useInitializeTheme = () => {
