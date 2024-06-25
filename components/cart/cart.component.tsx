@@ -9,8 +9,10 @@ const Cart = () => {
   const { cartItemList } = useAppStore()
   const [ cartItemsListGrouped, setCartItemsListGrouped ] = useState<ProductCartType[]>([])
 
+  type CartItemsAccumulator = Record<number, ProductCartType>;
+
   // Methode pour groupe les items avec le même ID
-  const groupedCartItems = cartItemList.reduce<ProductCartType>((acc, item) => {
+  const groupedCartItems = cartItemList.reduce<CartItemsAccumulator>((acc, item) => {
     const key = item.id;
     if (!acc[key]) {
         acc[key] = { ...item, quantity: 0 };
