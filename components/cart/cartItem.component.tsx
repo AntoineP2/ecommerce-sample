@@ -27,9 +27,9 @@ const CartItem: React.FC<CartItemProps> = ({cartItem}) => {
   }
 
   const handleRemoveItem = () => {
-    const ItemToRemove = cartItemList.find(item => item.id === cartItem.id)
+    const itemToRemove = cartItemList.find(item => item.id === cartItem.id)
     if (itemToRemove){
-      removeCartItem(ItemToRemove)
+      removeCartItem(itemToRemove)
       toast.success(`${cartItem.title} a été retiré du panier`)
     }else{
       toast.error('Une erreur est survenue')
