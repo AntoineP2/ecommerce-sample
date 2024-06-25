@@ -27,7 +27,7 @@ const CartItem: React.FC<CartItemProps> = ({cartItem}) => {
   }
 
   const handleRemoveItem = () => {
-    const ItemToRemove:ProductType = cartItemList.find(item => item.id === cartItem.id)
+    const ItemToRemove = cartItemList.find(item => item.id === cartItem.id)
     if (itemToRemove){
       removeCartItem(ItemToRemove)
       toast.success(`${cartItem.title} a été retiré du panier`)
