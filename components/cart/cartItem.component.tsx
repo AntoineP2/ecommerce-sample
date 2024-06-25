@@ -16,15 +16,24 @@ const CartItem: React.FC<CartItemProps> = ({cartItem}) => {
   const { cartItemList, setCartItemList, removeCartItem } = useAppStore()
 
   const handleAddItem = () => {
-    const ItemToAdd:ProductType = cartItemList.find(item => item.id === cartItem.id)
-    setCartItemList(ItemToAdd)
-    toast.success(`${cartItem.title} a été ajouté au panier`)
+    const itemToAdd = cartItemList.find(item => item.id === cartItem.id)
+    if (itemToAdd){
+      setCartItemList(itemToAdd)
+      toast.success(`${cartItem.title} a été ajouté au panier`)
+    }else{
+      toast.error('Une erreur est survenue')
+    }
+      
   }
 
   const handleRemoveItem = () => {
     const ItemToRemove:ProductType = cartItemList.find(item => item.id === cartItem.id)
-    removeCartItem(ItemToRemove)
-    toast.success(`${cartItem.title} a été retiré du panier`)
+    if (itemToRemove){
+      removeCartItem(ItemToRemove)
+      toast.success(`${cartItem.title} a été retiré du panier`)
+    }else{
+      toast.error('Une erreur est survenue')
+    }
   }
 
   return (
