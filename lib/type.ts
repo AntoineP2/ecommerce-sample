@@ -14,8 +14,6 @@ export enum ProductEnum {
     ONE_PIECE = 'One Piece',
     DRAGON_BALL = 'Dragon Ball',
     BLEACH = 'Bleach',
-    BLACK_CLOVER = 'Black Clover',
-    SOLO_LEVELING = 'Solo Leveling',
     DEMON_SLAYER = 'Demon Slayer',
 }
 
@@ -27,7 +25,7 @@ export type ProductType = {
     description: string;
     rating: number;
     votes: number;
-    imagePath: string;
+    imagePath: StaticImageData;
 };
 
 export type ProductCartType = {
@@ -38,6 +36,6 @@ export type ProductCartType = {
     description: string;
     rating: number;
     votes: number;
-    imagePath: string;
+    imagePath: StaticImageData;
     quantity: number;
 };

@@ -10,7 +10,7 @@ const config: Config = {
     themes: [
       {
         lightTheme: {
-          "primary": "#001f3f", // Bleu marine
+          "primary": "#407bb9", // Bleu marine
           "secondary": "#FF4136", // Rouge vif
           "accent": "#FF851B", // Couleur d'accentuation (orange)
           "neutral": "#F0F0F0", // Gris très clair

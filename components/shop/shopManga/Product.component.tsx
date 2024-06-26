@@ -1,6 +1,5 @@
 "use client"
 import { useEffect } from 'react'
-import tome from '@/public/product/tome-onepiece.jpeg'
 import Image from "next/image";
 import Rating from '@/components/Rating.component';
 import { MdAddShoppingCart } from 'react-icons/md';
@@ -29,7 +28,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
     return (
         <div className="relative w-[350px] h-[450px] bg-primary shadow-lg flex flex-col p-5 rounded-lg gap-3">
             <div className="flex justify-center items-center">
-                <Image src={tome} width={150} alt="Tome One piece" />
+                <Image src={product.imagePath} width={150} alt="Tome One piece" />
             </div>
             <div className='flex justify-center items-center gap-2'>
                 <Rating rating={product.rating} />

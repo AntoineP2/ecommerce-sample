@@ -34,20 +34,8 @@ export const StoreSectionIconList: StoreSectionIconType[] = [
     },
     {
         id: 5,
-        image: blackCloverImage,
-        title: 'Black Clover',
-        path: '/magasin/black-clover',
-    },
-    {
-        id: 6,
         image: demonSlayerImage,
         title: 'Demon Slayer',
         path: '/magasin/demon-slayer',
     },
-    {
-        id: 7,
-        image: soloLevelingImage,
-        title: 'Solo Leveling',
-        path: '/magasin/solo-leveling',
-    }
 ]
