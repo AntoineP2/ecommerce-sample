@@ -7,7 +7,7 @@ interface RatingProps {
 
 const Rating: React.FC<RatingProps> = ({ rating }) => {
     return (
-        <div className="rating">
+        <div className="rating max-md:rating-xs rating-sm">
             <input
                 type="radio"
                 name="rating-2"

@@ -28,14 +28,14 @@ const Product: React.FC<ProductProps> = ({ product }) => {
     return (
         <div className="relative w-[350px] h-[450px] bg-primary shadow-lg flex flex-col p-5 rounded-lg gap-3">
             <div className="flex justify-center items-center">
-                <Image src={product.imagePath} width={150} alt="Tome One piece" />
+                <Image src={product.imagePath} width={150} alt="Tome One piece" className='h-[200px]' />
             </div>
             <div className='flex justify-center items-center gap-2'>
                 <Rating rating={product.rating} />
-                <p className="text-gray-200">({product.votes})</p>
+                <p className="text-gray-200 text-sm">({product.votes})</p>
             </div>
             <div>
-                <p className="text-gray-200"><span className='font-bold text-accent'>{product.title}</span>, {product.description}</p>
+                <p className="text-gray-200 pt-4"><span className='font-bold text-accent'>{product.title}</span>, {product.description}</p>
             </div>
             <div className='flex justify-between items-center absolute bottom-2 left-0 w-full pb-1 px-5'>
                 <div>
