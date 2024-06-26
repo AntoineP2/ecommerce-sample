@@ -20,31 +20,31 @@ export const StoreSectionIconList: StoreSectionIconType[] = [
         image: onePieceImage,
         title: 'One Piece',
         path: '/magasin/one-piece',
-        darkColor: "#000000",
-        lightColor: "#FFFFFF",
+        darkColor: "bg-blue-800",
+        lightColor: "bg-blue-400",
     },
     {
         id: 3,
         image: dragonBallImage,
         title: 'Dragon Ball',
         path: '/magasin/dragon-ball',
-        darkColor: "#000000",
-        lightColor: "#FFFFFF",
+        darkColor: "bg-yellow-800", // Remplacez par une classe Tailwind valide
+        lightColor: "bg-yellow-400", // Remplacez par une classe Tailwind valide
     },
     {
         id: 4,
         image: bleachImage,
         title: 'Bleach',
         path: '/magasin/bleach',
-        darkColor: "#000000",
-        lightColor: "#FFFFFF",
+        darkColor: "bg-gray-800", // Remplacez par une classe Tailwind valide
+        lightColor: "bg-gray-400", // Remplacez par une classe Tailwind valide
     },
     {
         id: 5,
         image: demonSlayerImage,
         title: 'Demon Slayer',
         path: '/magasin/demon-slayer',
-        darkColor: "#000000",
-        lightColor: "#FFFFFF",
+        darkColor: "bg-red-800", // Remplacez par une classe Tailwind valide
+        lightColor: "bg-red-400", // Remplacez par une classe Tailwind valide
     },
 ]
