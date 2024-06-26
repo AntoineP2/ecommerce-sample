@@ -6,32 +6,39 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    'bg-orange-800', 'bg-orange-400',
+    'bg-blue-800', 'bg-blue-400',
+    'bg-yellow-800', 'bg-yellow-400',
+    'bg-gray-800', 'bg-gray-400',
+    'bg-red-800', 'bg-red-400'
+  ],
   daisyui: {
     themes: [
       {
         lightTheme: {
-          "primary": "#407bb9", // Bleu marine
-          "secondary": "#FF4136", // Rouge vif
-          "accent": "#FF851B", // Couleur d'accentuation (orange)
-          "neutral": "#F0F0F0", // Gris très clair
-          "base-100": "#E0F7FA", // Bleu très clair
-          "info": "#39CCCC", // Bleu clair
-          "success": "#2ECC40", // Vert
-          "warning": "#FFDC00", // Jaune
-          "error": "#FF4136", // Rouge
+          "primary": "#407bb9",
+          "secondary": "#FF4136",
+          "accent": "#FF851B",
+          "neutral": "#F0F0F0",
+          "base-100": "#E0F7FA",
+          "info": "#39CCCC",
+          "success": "#2ECC40",
+          "warning": "#FFDC00",
+          "error": "#FF4136",
         },
       },
       {
         darkTheme: {
-          "primary": "#001f3f", // Bleu marine
-          "secondary": "#C82333", // Rouge sombre
-          "accent": "#FF851B", // Couleur d'accentuation (orange)
-          "neutral": "#1B263B", // Bleu marine très foncé
-          "base-100": "#060F1C", // Bleu très foncé
-          "info": "#117A8B", // Bleu foncé
-          "success": "#218838", // Vert foncé
-          "warning": "#E0A800", // Jaune foncé
-          "error": "#C82333", // Rouge foncé
+          "primary": "#001f3f",
+          "secondary": "#C82333",
+          "accent": "#FF851B",
+          "neutral": "#1B263B",
+          "base-100": "#060F1C",
+          "info": "#117A8B",
+          "success": "#218838",
+          "warning": "#E0A800",
+          "error": "#C82333",
         },
       },
     ],

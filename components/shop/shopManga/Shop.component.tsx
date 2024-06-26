@@ -10,7 +10,7 @@ import { useAppStore } from "@/lib/appStore";
 const Shop = () => {
   const pathname = usePathname();
   const [withHeader, setWidthHeader] = useState<string>("w-0");
-  const [colorBgHeader, setColorBgHeader] = useState<string>("");
+  const [colorBgHeader, setColorBgHeader] = useState<string>("bg-red-400");
   const router = useRouter();
   const parts = pathname.split("/");
   const lastPart = parts[parts.length - 1];
@@ -38,7 +38,7 @@ const Shop = () => {
   return (
     <>
       <div
-        className={`${withHeader + " " + colorBgHeader} h-[80px] mt-[-30px] mb-[50px] relative transition-all duration-300 ease-in-out`}
+        className={`${withHeader} ${colorBgHeader} h-[80px] mt-[-30px] mb-[50px] relative transition-all duration-300 ease-in-out`}
       >
         <div className="flex justify-center items-center">
           <div className="breadcrumbs text-sm">
