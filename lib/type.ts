@@ -7,6 +7,8 @@ export type StoreSectionIconType = {
     image: StaticImageData;
     title: string;
     path: string;
+    darkColor: string;
+    lightColor: string;
 };
 
 export enum ProductEnum {

@@ -13,7 +13,7 @@ const Shop = () => {
   const router = useRouter();
   const parts = pathname.split("/");
   const lastPart = parts[parts.length - 1];
-  const { openShop } = useAppStore();
+  const { theme, openShop } = useAppStore();
 
   const storeSection = StoreSectionIconList.find((item) => {
     const pathParts = item.path.split("/");
@@ -30,10 +30,12 @@ const Shop = () => {
     (product) => product.type === storeSection?.title
   );
 
+  console.log(storeSection)
+
   return (
     <>
       <div
-        className={`${withHeader} h-[80px] mt-[-30px] mb-[50px] relative bg-accent transition-all duration-300 ease-in-out`}
+        className={`${withHeader} h-[80px] mt-[-30px] mb-[50px] relative ${theme === "darkTheme" ? storeSection?.darkColor : storeSection?.lightColor} transition-all duration-300 ease-in-out`}
       >
         <div className="flex justify-center items-center">
           <div className="breadcrumbs text-sm">
