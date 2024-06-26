@@ -21,7 +21,7 @@ const Shop = () => {
   });
 
   useEffect(() => {
-    setWidthHeader("w-screen");
+    setWidthHeader("w-full");
   }, []);
 
   console.log(parts);
