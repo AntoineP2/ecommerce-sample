@@ -1,7 +1,7 @@
 "use client";
 
 import { useAppStore } from "@/lib/appStore";
-import CartItem from "./CartItem.component";
+import CartItem from "./cartItem.component";
 import { ProductCartType, ProductType } from "@/lib/type";
 import { useEffect, useState } from "react";
 import EmptyCart from "./EmptyCart.component";
