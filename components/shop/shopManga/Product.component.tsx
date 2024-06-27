@@ -11,9 +11,10 @@ import { toast } from 'sonner';
 
 interface ProductProps {
     product: ProductType
+    colorBgHeader: string
 }
 
-const Product: React.FC<ProductProps> = ({ product }) => {
+const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
     const { cartItemList, setCartItemList } = useAppStore()
     const pathname = usePathname()
     const parts = pathname.split('/');
@@ -26,7 +27,7 @@ const Product: React.FC<ProductProps> = ({ product }) => {
     }
 
     return (
-        <div className="relative w-[350px] h-[450px] bg-primary shadow-lg flex flex-col p-5 rounded-lg gap-3">
+        <div className={`relative w-[350px] h-[450px] bg-primary border border-${colorBgHeader} shadow-lg flex flex-col p-5 rounded-lg gap-3`}>
             <div className="flex justify-center items-center">
                 <Image src={product.imagePath} width={150} alt="Tome One piece" className='h-[200px]' />
             </div>

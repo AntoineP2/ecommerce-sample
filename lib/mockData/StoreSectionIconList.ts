@@ -12,39 +12,39 @@ export const StoreSectionIconList: StoreSectionIconType[] = [
         image: narutoImage,
         title: 'Naruto',
         path: '/magasin/naruto',
-        darkColor: "bg-orange-800",
-        lightColor: "bg-orange-400",
+        darkColor: "orange-800",
+        lightColor: "orange-400",
     },
     {
         id: 2,
         image: onePieceImage,
         title: 'One Piece',
         path: '/magasin/one-piece',
-        darkColor: "bg-blue-800",
-        lightColor: "bg-blue-400",
+        darkColor: "blue-800",
+        lightColor: "blue-400",
     },
     {
         id: 3,
         image: dragonBallImage,
         title: 'Dragon Ball',
         path: '/magasin/dragon-ball',
-        darkColor: "bg-yellow-800", // Remplacez par une classe Tailwind valide
-        lightColor: "bg-yellow-400", // Remplacez par une classe Tailwind valide
+        darkColor: "yellow-800", // Remplacez par une classe Tailwind valide
+        lightColor: "yellow-400", // Remplacez par une classe Tailwind valide
     },
     {
         id: 4,
         image: bleachImage,
         title: 'Bleach',
         path: '/magasin/bleach',
-        darkColor: "bg-gray-800", // Remplacez par une classe Tailwind valide
-        lightColor: "bg-gray-400", // Remplacez par une classe Tailwind valide
+        darkColor: "gray-800", // Remplacez par une classe Tailwind valide
+        lightColor: "gray-400", // Remplacez par une classe Tailwind valide
     },
     {
         id: 5,
         image: demonSlayerImage,
         title: 'Demon Slayer',
         path: '/magasin/demon-slayer',
-        darkColor: "bg-red-800", // Remplacez par une classe Tailwind valide
-        lightColor: "bg-red-400", // Remplacez par une classe Tailwind valide
+        darkColor: "red-800", // Remplacez par une classe Tailwind valide
+        lightColor: "red-400", // Remplacez par une classe Tailwind valide
     },
 ]

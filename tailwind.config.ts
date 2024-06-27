@@ -7,11 +7,27 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: [
-    'bg-orange-800', 'bg-orange-400',
-    'bg-blue-800', 'bg-blue-400',
-    'bg-yellow-800', 'bg-yellow-400',
-    'bg-gray-800', 'bg-gray-400',
-    'bg-red-800', 'bg-red-400'
+    'from-orange-800', 'from-orange-400',
+    'from-blue-800', 'from-blue-400',
+    'from-yellow-800', 'from-yellow-400',
+    'from-gray-800', 'from-gray-400',
+    'from-red-800', 'from-red-400',
+    'to-orange-800', 'to-orange-400',
+    'to-blue-800', 'to-blue-400',
+    'to-yellow-800', 'to-yellow-400',
+    'to-gray-800', 'to-gray-400',
+    'to-red-800', 'to-red-400',
+    'border-orange-800', 'border-orange-400',
+    'border-blue-800', 'border-blue-400',
+    'border-yellow-800', 'border-yellow-400',
+    'border-gray-800', 'border-gray-400',
+    'border-red-800', 'border-red-400',
+    'shadow-orange-800', 'shadow-orange-400',
+    'shadow-blue-800', 'shadow-blue-400',
+    'shadow-yellow-800', 'shadow-yellow-400',
+    'shadow-gray-800', 'shadow-gray-400',
+    'shadow-red-800', 'shadow-red-400',
+    '-left-full', 'left-full'
   ],
   daisyui: {
     themes: [
