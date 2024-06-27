@@ -40,7 +40,7 @@ const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
     });
 
     const variants = {
-        hidden: { opacity: 0, y: 50 },
+        hidden: { opacity: 0, y: 35 },
         visible: { opacity: 1, y: 0 },
     };
 
