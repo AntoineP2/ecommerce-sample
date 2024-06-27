@@ -4,7 +4,7 @@ import { useAppStore } from "@/lib/appStore";
 import CartItem from "./CartItem.component";
 import { ProductCartType, ProductType } from "@/lib/type";
 import { useEffect, useState } from "react";
-import EmptyCart from "./emptyCart.component";
+import EmptyCart from "./EmptyCart.component";
 
 const Cart = () => {
   const { cartItemList } = useAppStore();
