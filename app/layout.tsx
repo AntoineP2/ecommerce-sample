@@ -26,7 +26,7 @@ export default function RootLayout({
           <div className="w-screen h-[70px] shadow-lg bg-base-100 mb-20 md:py-5 fixed z-50">
             <Header />
           </div>
-          <div className="pt-[100px] z-30">
+          <div className="pt-[100px] z-30 pb-[100px]">
             {children}
           </div>
           <Toaster richColors  />

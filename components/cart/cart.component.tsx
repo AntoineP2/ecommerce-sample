@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import EmptyCart from "./EmptyCart.component";
 
 const Cart = () => {
-  const { cartItemList } = useAppStore();
+  const { cartItemList, price } = useAppStore();
   const [cartItemsListGrouped, setCartItemsListGrouped] = useState<
     ProductCartType[]
   >([]);
@@ -26,7 +26,7 @@ const Cart = () => {
     },
     {}
   );
-  console.log("ok")
+  console.log("ok");
 
   useEffect(() => {
     setCartItemsListGrouped(Object.values(groupedCartItems));
@@ -34,13 +34,26 @@ const Cart = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center gap-3">
-        {cartItemsListGrouped.length === 0 && (<EmptyCart />)}
-        {cartItemsListGrouped.map((item) => (
-          <div key={item.id}>
-            <CartItem cartItem={item} />
+      <div className="flex max-md:flex-col justify-center items-center gap-3">
+        {cartItemsListGrouped.length === 0 && <EmptyCart />}
+        {cartItemsListGrouped.length > 0 && (
+          <div className="bg-primary flex flex-col lg:w-[1000px] w-[90%] rounded-md shadow-lg">
+            <div className="flex justify-between items-center text-xl max-md:text-lg font-bold pt-5 mx-5 text-gray-200">
+              <p>Votre panier</p>
+              <button className="btn btn-success text-gray-200"> Passer la commande</button>
+            </div>
+            <div className="divider"></div>
+            {cartItemsListGrouped.map((item) => (
+              <div key={item.id}>
+                <CartItem cartItem={item} />
+                <div className="divider"></div>
+              </div>
+            ))}
+            <div className="flex justify-end items-center pb-10 max-md:scale-90 text-gray-200 px-3">
+              <p> sous-total : <span className="text-lg font-bold">{price} €</span> </p>
+            </div>
           </div>
-        ))}
+        )}
       </div>
     </>
   );
