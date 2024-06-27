@@ -1,5 +1,5 @@
 "use client"
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 import Image from "next/image";
 import Rating from '@/components/Rating.component';
 import { MdAddShoppingCart } from 'react-icons/md';
@@ -9,6 +9,8 @@ import { ProductType } from '@/lib/type';
 import { useAppStore } from '@/lib/appStore';
 import { toast } from 'sonner';
 import ProductDetailModal from '@/components/modals/ProductDetail.modal';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 interface ProductProps {
     product: ProductType
@@ -16,26 +18,43 @@ interface ProductProps {
 }
 
 const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
-    const { cartItemList, setCartItemList, openProductDetail, setCurrentProduct } = useAppStore()
-    const pathname = usePathname()
+    const { cartItemList, setCartItemList, openProductDetail, setCurrentProduct } = useAppStore();
+    const pathname = usePathname();
     const parts = pathname.split('/');
     const lastPart = parts[parts.length - 1];
-    const router = useRouter()
+    const router = useRouter();
 
     const handleAddProduct = () => {
-        setCartItemList(product)
-        toast.success(`${product.title} a été ajouté au panier`)
-    }
+        setCartItemList(product);
+        toast.success(`${product.title} a été ajouté au panier`);
+    };
 
     const handleOpenDetail = () => {
-        openProductDetail()
-        setCurrentProduct(product)
-    }
+        openProductDetail();
+        setCurrentProduct(product);
+    };
+
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+
+    const variants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0 },
+    };
 
     return (
-        <div className={`relative w-[350px] h-[450px] bg-primary border border-${colorBgHeader} shadow-lg flex flex-col p-5 rounded-lg gap-3`}>
+        <motion.div
+            ref={ref}
+            variants={variants}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            className={`relative w-[350px] h-[450px] bg-primary border border-${colorBgHeader} shadow-lg flex flex-col p-5 rounded-lg gap-3`}
+        >
             <div className="flex justify-center items-center">
-                <Image src={product.imagePath} width={150} alt="Tome One piece" className='h-[200px]' />
+                <Image src={product.imagePath} width={150} height={200} alt="Tome One piece" className='h-[200px]' />
             </div>
             <div className='flex justify-center items-center gap-2'>
                 <Rating rating={product.rating} />
@@ -59,8 +78,8 @@ const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
                     </button>
                 </div>
             </div>
-        </div>
-    )
-}
+        </motion.div>
+    );
+};
 
-export default Product
+export default Product;
