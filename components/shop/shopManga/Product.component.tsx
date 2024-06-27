@@ -8,6 +8,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { ProductType } from '@/lib/type';
 import { useAppStore } from '@/lib/appStore';
 import { toast } from 'sonner';
+import ProductDetailModal from '@/components/modals/ProductDetail.modal';
 
 interface ProductProps {
     product: ProductType
@@ -15,7 +16,7 @@ interface ProductProps {
 }
 
 const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
-    const { cartItemList, setCartItemList } = useAppStore()
+    const { cartItemList, setCartItemList, openProductDetail, setCurrentProduct } = useAppStore()
     const pathname = usePathname()
     const parts = pathname.split('/');
     const lastPart = parts[parts.length - 1];
@@ -24,6 +25,11 @@ const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
     const handleAddProduct = () => {
         setCartItemList(product)
         toast.success(`${product.title} a été ajouté au panier`)
+    }
+
+    const handleOpenDetail = () => {
+        openProductDetail()
+        setCurrentProduct(product)
     }
 
     return (
@@ -44,7 +50,7 @@ const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
                 </div>
                 <div className="flex justify-center items-center gap-3">
                     <button className="max-md:active:scale-95 md:hover:scale-105 transition duration-150 ease-in-out">
-                        <IoMdInformationCircleOutline size={35} className="text-accent" onClick={() => router.push(`/magasin/${lastPart}/product`)} />
+                        <IoMdInformationCircleOutline size={35} className="text-accent" onClick={handleOpenDetail} />
                     </button>
                     <button className="max-md:active:scale-95 md:hover:scale-105 transition duration-150 ease-in-out" onClick={handleAddProduct}>
                         <div className="flex justify-center items-center w-[60px] h-[60px] rounded-full bg-secondary text-gray-200">

@@ -39,7 +39,7 @@ const Shop = () => {
       <div
         className={`${withHeader} bg-gradient-to-r from-${colorBgHeader} from-30% to-base-100 h-[90px] mt-[-30px] mb-[50px] relative transition-all duration-500 ease-in-out rounded-lg shadow-lg`}
       >
-        <div className="flex flex-col justify-center pl-10">
+        <div className="flex flex-col justify-center md:pl-10 pl-5">
           <div className="breadcrumbs text-sm">
             <ul>
               <li className="hover:underline hover:font-bold hover:text-accent">
@@ -52,8 +52,8 @@ const Shop = () => {
               </li>
             </ul>
           </div>
-          <h1 className="font-bold md:text-2xl text-lg">
-            Rayon {storeSection?.title}
+          <h1 className="font-bold md:text-2xl text-xl">
+            Rayon {storeSection?.title} <span className="text-xs font-normal italic">{productListFilter.length} produit(s)</span>
           </h1>
         </div>
       </div>

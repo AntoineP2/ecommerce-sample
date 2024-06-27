@@ -1,16 +1,23 @@
 import { getCookie, setCookie } from 'cookies-next';
 import { useEffect } from 'react';
 import { create } from 'zustand'
-import { ProductType, ThemeType } from './type';
+import { ProductType, StoreSectionIconType, ThemeType } from './type';
 
 type StateType = {
   count: number;
   showShop: boolean;
+  showProductDetail: boolean;
   price: number;
+  currentProduct: ProductType | null;
+  currentSection: StoreSectionIconType | null;
+  setCurrentProduct: (product: ProductType) => void;
+  setCurrentSection: (section: StoreSectionIconType) => void;
   increase: () => void;
   decrease: () => void;
   closeShop: () => void;
   openShop: () => void;
+  closeProductDetail: () => void;
+  openProductDetail: () => void;
   toggleTheme: () => void;
   setTheme: (theme: ThemeType) => void;
   cartItemList: ProductType[];
@@ -35,12 +42,19 @@ const useAppStore = create<StateType>((set) => ({
   count: 0,
   price: 0,
   showShop: false,
+  showProductDetail: false,
   theme: 'lightTheme',
   cartItemList: [],
+  currentProduct: null,
+  currentSection: null,
+  setCurrentProduct: (product: ProductType) => set(() => ({ currentProduct: product })),
+  setCurrentSection: (section: StoreSectionIconType) => set(() => ({ currentSection: section })),
   increase: () => set((state) => ({ count: state.count + 1 })),
   decrease: () => set((state) => ({ count: state.count - 1 })),
   openShop: () => set(() => ({ showShop: true })),
   closeShop: () => set(() => ({ showShop: false })),
+  openProductDetail: () => set(() => ({ showProductDetail: true })),
+  closeProductDetail: () => set(() => ({ showProductDetail: false })),
   toggleTheme: () => set((state) => {
     const newTheme = state.theme === 'lightTheme' ? 'darkTheme' : 'lightTheme';
     setCookie('theme', newTheme);

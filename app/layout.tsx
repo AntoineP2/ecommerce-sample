@@ -4,6 +4,8 @@ import "./globals.css";
 import ThemeProvider from "./themeProvider";
 import Header from "@/components/header/Header.component";
 import { Toaster } from "sonner";
+import StoreSectionModal from "@/components/modals/StoreSection.modal";
+import ProductDetailModal from "@/components/modals/ProductDetail.modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,8 +29,10 @@ export default function RootLayout({
           <div className="pt-[100px] z-30">
             {children}
           </div>
+          <Toaster richColors  />
+          <StoreSectionModal />
+          <ProductDetailModal />
         </ThemeProvider>
-        <Toaster richColors  />
       </body>
     </html>
   );
