@@ -26,6 +26,7 @@ const Cart = () => {
     },
     {}
   );
+  console.log("ok")
 
   useEffect(() => {
     setCartItemsListGrouped(Object.values(groupedCartItems));
