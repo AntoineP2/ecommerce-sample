@@ -22,7 +22,9 @@ const SearchBar = () => {
     setSearchShopEntry(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
     if (searchShopEntry.length > 0) {
       if (inputRef.current) {
         inputRef.current.value = "";
@@ -31,7 +33,6 @@ const SearchBar = () => {
     } else {
       toast.error("Veuillez entrer un produit à rechercher");
     }
-    e.preventDefault();
   };
 
   return (
@@ -45,7 +46,7 @@ const SearchBar = () => {
             placeholder="Chercher un produit"
             onChange={handleSearchChange}
           />
-          <button onClick={handleSubmit}>
+          <button type="submit">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"

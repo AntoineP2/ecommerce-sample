@@ -44,7 +44,7 @@ const NavBarMobile = () => {
 
             <div className='flex gap-1 items-center justify-center pl-2 active:scale-95 transition ease-in-out duration-150'>
                 <button className='flex gap-1 items-center justify-center'>
-                    <IoIosSearch size={40} />
+                    <IoIosSearch size={40} onClick={() => router.push("/recherche")} />
                 </button>
             </div>
 

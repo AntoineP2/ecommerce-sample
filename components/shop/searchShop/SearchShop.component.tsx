@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Product from "../shopManga/Product.component";
 import EmptyShop from "./EmptySearch.component";
+import SearchBar from "./SearchBar.component";
 
 const SearchShop: React.FC = () => {
   const { searchShopEntry } = useAppStore();
@@ -58,7 +59,10 @@ const SearchShop: React.FC = () => {
 
   return (
     <>
-      
+      <div className="md:hidden">
+        <SearchBar />
+      </div>
+
       <div className="flex max-md:flex-col justify-center items-center gap-3">
         {products.length > 0 && (
           <div>
