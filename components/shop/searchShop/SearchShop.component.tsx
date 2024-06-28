@@ -51,9 +51,13 @@ const SearchShop: React.FC = () => {
 
   return (
     <>
-      <div className="md:hidden mb-5 mt-2 mx-2">
+      <div className="md:hidden mb-6 mt-2 mx-2">
         <SearchBar />
       </div>
+      {searchShopEntry && <div className="flex flex-col justify-center items-center">
+        <p>Recherche pour: <span className="font-bold text-xl max-md:text-lg">{searchShopEntry}</span>...</p>
+        <div className="divider px-5"></div>
+      </div >}
 
       <div className="flex max-md:flex-col justify-center items-center gap-3">
         <motion.div
