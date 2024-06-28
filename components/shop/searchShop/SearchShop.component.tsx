@@ -58,6 +58,7 @@ const SearchShop: React.FC = () => {
 
   return (
     <>
+      
       <div className="flex max-md:flex-col justify-center items-center gap-3">
         {products.length > 0 && (
           <div>

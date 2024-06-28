@@ -14,7 +14,7 @@ import { useInView } from "react-intersection-observer";
 
 interface ProductProps {
   product: ProductType;
-  colorBgHeader: string;
+  colorBgHeader?: string;
 }
 
 const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
