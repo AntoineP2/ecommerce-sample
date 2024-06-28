@@ -51,28 +51,24 @@ const SearchShop: React.FC = () => {
 
   return (
     <>
-      <div className="md:hidden mt-5 mx-2">
+      <div className="md:hidden mb-5 mt-2 mx-2">
         <SearchBar />
       </div>
 
       <div className="flex max-md:flex-col justify-center items-center gap-3">
-        {products.length > 0 && (
-          <div>
-            <motion.div
-              ref={refList}
-              variants={variantsList}
-              initial="hidden"
-              animate={inViewList ? "visible" : "hidden"}
-              className="flex flex-wrap justify-center items-center max-md:flex-col md:px-5 gap-5"
-            >
-              {products.map((product) => (
-                <motion.div variants={variantsItem} key={product.id}>
-                  <Product product={product} />
-                </motion.div>
-              ))}
+        <motion.div
+          ref={refList}
+          variants={variantsList}
+          initial="hidden"
+          animate={inViewList ? "visible" : "hidden"}
+          className="flex flex-wrap justify-center items-center max-md:flex-col md:px-5 gap-5"
+        >
+          {products.map((product) => (
+            <motion.div variants={variantsItem} key={product.id}>
+              <Product product={product} />
             </motion.div>
-          </div>
-        )}
+          ))}
+        </motion.div>
         {products.length === 0 && (
           <div className="flex justify-center items-center">
             <EmptyShop />
