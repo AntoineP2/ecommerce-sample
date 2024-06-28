@@ -10,6 +10,8 @@ type StateType = {
   price: number;
   currentProduct: ProductType | null;
   currentSection: StoreSectionIconType | null;
+  searchShopEntry: string;
+  setSearchShopEntry: (entry: string) => void;
   setCurrentProduct: (product: ProductType) => void;
   setCurrentSection: (section: StoreSectionIconType) => void;
   increase: () => void;
@@ -47,6 +49,8 @@ const useAppStore = create<StateType>((set) => ({
   cartItemList: [],
   currentProduct: null,
   currentSection: null,
+  searchShopEntry: '',
+  setSearchShopEntry: (entry: string) => set(() => ({ searchShopEntry: entry })),
   setCurrentProduct: (product: ProductType) => set(() => ({ currentProduct: product })),
   setCurrentSection: (section: StoreSectionIconType) => set(() => ({ currentSection: section })),
   increase: () => set((state) => ({ count: state.count + 1 })),

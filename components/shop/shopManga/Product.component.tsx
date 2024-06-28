@@ -59,7 +59,7 @@ const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
       variants={variants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className={`relative w-[350px] h-[450px] bg-primary border border-${colorBgHeader} shadow-lg flex flex-col p-5 rounded-lg gap-3`}
+      className={`relative w-[350px] h-[450px] bg-primary border border-${colorBgHeader ? colorBgHeader : "primary"} shadow-lg flex flex-col p-5 rounded-lg gap-3`}
     >
       <div className="flex justify-center items-center">
         <Image
