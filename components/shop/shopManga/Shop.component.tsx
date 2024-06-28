@@ -6,6 +6,8 @@ import Product from "./Product.component";
 import productsList from "@/lib/mockData/StoreProductList";
 import { useEffect, useRef, useState } from "react";
 import { useAppStore } from "@/lib/appStore";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const Shop = () => {
   const pathname = usePathname();
@@ -21,14 +23,47 @@ const Shop = () => {
     return pathParts[pathParts.length - 1] === lastPart;
   });
 
+  const { ref: refBar, inView: inViewBar } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  const { ref: refList, inView: inViewList } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+
+  const variants = {
+    hidden: { x: "90vw" },
+    visible: { x: "0px " },
+  };
+
+  const variantsItem = {
+    hidden: { opacity: 0, y: 35 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const variantsList = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
   useEffect(() => {
     setWidthHeader("left-0");
     if (storeSection) {
-      const newColor = theme === "darkTheme" ? storeSection.darkColor : storeSection.lightColor
+      const newColor =
+        theme === "darkTheme"
+          ? storeSection.darkColor
+          : storeSection.lightColor;
       setColorBgHeader(newColor);
     }
   }, [theme, storeSection]);
-
 
   const productListFilter = productsList.filter(
     (product) => product.type === storeSection?.title
@@ -36,8 +71,13 @@ const Shop = () => {
 
   return (
     <>
-      <div
-        className={`${withHeader} bg-gradient-to-r from-${colorBgHeader} from-30% to-base-100 h-[90px] mt-[-30px] mb-[50px] relative transition-all duration-500 ease-in-out rounded-lg shadow-lg`}
+      <motion.div
+        ref={refBar}
+        variants={variants}
+        initial="hidden"
+        animate={inViewBar ? "visible" : "hidden"}
+        transition={{ duration: 0.05, ease: "easeInOut" }}
+        className={`bg-gradient-to-r from-${colorBgHeader} from-30% to-base-100 h-[90px] mt-[-30px] mb-[50px] relative transition-all duration-500 ease-in-out rounded-lg shadow-lg`}
       >
         <div className="flex flex-col justify-center md:pl-10 pl-5">
           <div className="breadcrumbs text-sm">
@@ -53,16 +93,27 @@ const Shop = () => {
             </ul>
           </div>
           <h1 className="font-bold md:text-2xl text-xl">
-            Rayon {storeSection?.title} <span className="text-xs font-normal italic">{productListFilter.length} produit(s)</span>
+            Rayon {storeSection?.title}{" "}
+            <span className="text-xs font-normal italic">
+              {productListFilter.length} produit(s)
+            </span>
           </h1>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="flex flex-wrap justify-center items-center max-md:flex-col md:px-5 gap-5">
+      <motion.div
+        ref={refList}
+        variants={variantsList}
+        initial="hidden"
+        animate={inViewList ? "visible" : "hidden"}
+        className="flex flex-wrap justify-center items-center max-md:flex-col md:px-5 gap-5"
+      >
         {productListFilter.map((product) => (
-          <Product key={product.id} product={product} colorBgHeader={colorBgHeader} />
+          <motion.div variants={variantsItem} key={product.id}>
+            <Product product={product} colorBgHeader={colorBgHeader} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };
