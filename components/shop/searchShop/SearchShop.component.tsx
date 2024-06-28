@@ -23,20 +23,12 @@ const SearchShop: React.FC = () => {
     setProducts(filteredProducts);
   };
 
-  const { ref: refBar, inView: inViewBar } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
 
   const { ref: refList, inView: inViewList } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const variants = {
-    hidden: { x: "90vw" },
-    visible: { x: "0px " },
-  };
 
   const variantsItem = {
     hidden: { opacity: 0, y: 35 },
@@ -59,7 +51,7 @@ const SearchShop: React.FC = () => {
 
   return (
     <>
-      <div className="md:hidden">
+      <div className="md:hidden mt-5 mx-2">
         <SearchBar />
       </div>
 
@@ -82,7 +74,7 @@ const SearchShop: React.FC = () => {
           </div>
         )}
         {products.length === 0 && (
-          <div>
+          <div className="flex justify-center items-center">
             <EmptyShop />
           </div>
         )}

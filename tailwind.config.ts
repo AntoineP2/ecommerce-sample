@@ -22,6 +22,7 @@ const config: Config = {
     'border-yellow-800', 'border-yellow-400',
     'border-gray-800', 'border-gray-400',
     'border-red-800', 'border-red-400',
+    'border-primary',
     'shadow-orange-800', 'shadow-orange-400',
     'shadow-blue-800', 'shadow-blue-400',
     'shadow-yellow-800', 'shadow-yellow-400',

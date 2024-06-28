@@ -19,15 +19,12 @@ interface ProductProps {
 
 const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
   const {
-    cartItemList,
     setCartItemList,
     openProductDetail,
     setCurrentProduct,
   } = useAppStore();
   const pathname = usePathname();
   const parts = pathname.split("/");
-  const lastPart = parts[parts.length - 1];
-  const router = useRouter();
 
   const handleAddProduct = () => {
     setCartItemList(product);
@@ -59,7 +56,7 @@ const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
       variants={variants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className={`relative w-[350px] h-[450px] bg-primary border border-${colorBgHeader ? colorBgHeader : "primary"} shadow-lg flex flex-col p-5 rounded-lg gap-3`}
+      className={`relative w-[350px] h-[450px] bg-primary border border-${colorBgHeader !== undefined ? colorBgHeader : "primary"} shadow-lg flex flex-col p-5 rounded-lg gap-3`}
     >
       <div className="flex justify-center items-center">
         <Image

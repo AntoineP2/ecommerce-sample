@@ -25,7 +25,6 @@ const Shop = () => {
 
   const { ref: refBar, inView: inViewBar } = useInView({
     triggerOnce: true,
-    threshold: 0.1,
   });
 
   const { ref: refList, inView: inViewList } = useInView({

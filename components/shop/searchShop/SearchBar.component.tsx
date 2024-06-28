@@ -8,11 +8,6 @@ import { toast } from "sonner";
 const SearchBar = () => {
   const {
     searchShopEntry,
-    theme,
-    cartItemList,
-    price,
-    toggleTheme,
-    openShop,
     setSearchShopEntry,
   } = useAppStore();
   const router = useRouter();
