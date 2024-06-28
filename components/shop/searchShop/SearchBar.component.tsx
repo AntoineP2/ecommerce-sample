@@ -22,7 +22,7 @@ const SearchBar = () => {
     setSearchShopEntry(e.target.value);
   };
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (searchShopEntry.length > 0) {
