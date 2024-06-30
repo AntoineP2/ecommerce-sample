@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} h-screen`}>
+      <body className={`${inter.className} h-screen overflow-x-hidden`}>
         <ThemeProvider>
           <div className="w-screen h-[70px] shadow-lg bg-base-100 mb-20 md:py-5 fixed z-50">
             <Header />
@@ -29,7 +29,7 @@ export default function RootLayout({
           <div className="pt-[100px] z-30 pb-[100px]">
             {children}
           </div>
-          <Toaster richColors  />
+          <Toaster richColors />
           <StoreSectionModal />
           <ProductDetailModal />
         </ThemeProvider>
