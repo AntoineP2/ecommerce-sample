@@ -25,11 +25,11 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="w-screen h-[70px] shadow-lg bg-base-100 mb-20 md:py-5 fixed z-50">
             <Header />
-            <Toaster richColors />
             <StoreSectionModal />
             <ProductDetailModal />
           </div>
           <div className="pt-[100px] z-30 pb-[100px]">{children}</div>
+          <Toaster richColors />
         </ThemeProvider>
       </body>
     </html>
