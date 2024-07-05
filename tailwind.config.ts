@@ -34,29 +34,29 @@ const config: Config = {
     themes: [
       {
         lightTheme: {
-          "primary": "#407bb9",
-          "secondary": "#FF4136",
-          "accent": "#FF851B",
-          "neutral": "#F0F0F0",
-          "base-100": "#E0F7FA",
-          "info": "#39CCCC",
-          "success": "#2ECC40",
-          "warning": "#FFDC00",
-          "error": "#FF4136",
-        },
+          "primary": "#407bb9",    // Bleu
+          "secondary": "#9B59B6",  // Violet
+          "accent": "#FF851B",     // Orange (complémentaire)
+          "neutral": "#F0F0F0",    // Gris clair (pour les fonds et éléments neutres)
+          "base-100": "#FFFFFF",   // Blanc (pour le fond principal)
+          "info": "#39CCCC",       // Bleu clair (pour les informations)
+          "success": "#2ECC40",    // Vert (pour les succès)
+          "warning": "#FFDC00",    // Jaune (pour les avertissements)
+          "error": "#FF4136"       // Rouge (pour les erreurs)
+        }
       },
       {
         darkTheme: {
-          "primary": "#001f3f",
-          "secondary": "#C82333",
-          "accent": "#FF851B",
-          "neutral": "#1B263B",
-          "base-100": "#060F1C",
-          "info": "#117A8B",
-          "success": "#218838",
-          "warning": "#E0A800",
-          "error": "#C82333",
-        },
+          "primary": "#1E3A8A",    // Bleu
+          "secondary": "#9B59B6",  // Violet
+          "accent": "#FF851B",     // Orange (complémentaire)
+          "neutral": "#2D2D2D",    // Gris foncé (pour les fonds et éléments neutres)
+          "base-100": "#121212",   // Noir (pour le fond principal)
+          "info": "#39CCCC",       // Bleu clair (pour les informations)
+          "success": "#2ECC40",    // Vert (pour les succès)
+          "warning": "#FFDC00",    // Jaune (pour les avertissements)
+          "error": "#FF4136"       // Rouge (pour les erreurs)
+        }
       },
     ],
   },

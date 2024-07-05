@@ -41,3 +41,11 @@ export type ProductCartType = {
     imagePath: StaticImageData;
     quantity: number;
 };
+
+export type FormInputsPaymentType = {
+    email: string;
+    cardNumber: string;
+    cardName: string;
+    expirationDate: string;
+    cvv: string;
+};
