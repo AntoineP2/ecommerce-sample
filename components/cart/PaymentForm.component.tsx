@@ -3,7 +3,8 @@
 import { useAppStore } from "@/lib/appStore"
 import { FormInputsPaymentType } from "@/lib/type";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { FaCcVisa, FaUser } from "react-icons/fa";
+import { FaCcVisa, FaMapPin, FaUser } from "react-icons/fa";
+import { IoMailSharp } from "react-icons/io5";
 
 const PaymentForm: React.FC = () => {
   const { price } = useAppStore()
@@ -17,19 +18,19 @@ const PaymentForm: React.FC = () => {
 
   return (
     <div className="w-screen flex justify-center items-center">
-      <div className="w-[800px] h-[800px] relative">
+      <div className="w-[800px] h-[800px] relative max-md:w-full">
         <div>
           <p>Vos achats : {price} €</p>
         </div>
         <form onSubmit={handleSubmit((data) => console.log(data))} className="flex justify-center">
-          <div className="w-[80%] flex flex-col justify-center items-center gap-2">
+          <div className="w-[80%] max-md:w-[90%] flex flex-col justify-center items-center gap-5">
 
-            {/* CardName, CardNumber */}
+            {/* CardName, CardNumber, CVV, ExpiredDate */}
             <div className="flex flex-col gap-2 w-full shadow-sm shadow-secondary px-2 py-2 rounded-lg ">
               <h2 className="text-secondary font-bold"> Informations de la carte</h2>
               {/* CardName */}
               <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
-                <FaUser size={12} className="text-primary" />
+                <FaUser size={15} className="text-primary" />
                 <input
                   type="text"
                   className="grow"
@@ -85,7 +86,7 @@ const PaymentForm: React.FC = () => {
                   Le numéro de la carte est obligatoire
                 </span>
               )}
-              <div className="flex gap-1">
+              <div className="flex gap-1 max-md:flex-col max-md:gap-2">
                 {/* Expiration Date */}
                 <input
                   type="text"
@@ -154,63 +155,92 @@ const PaymentForm: React.FC = () => {
 
             </div>
 
-            {/* Location, Country */}
+            {/* Email, Location */}
             <div className="flex flex-col gap-2 w-full shadow-sm shadow-secondary px-2 py-2 rounded-lg ">
               <h2 className="text-secondary font-bold"> Informations facturation</h2>
-              {/* CardName */}
+              {/* Email */}
               <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
-                <FaUser size={12} className="text-primary" />
+                <IoMailSharp size={15} className="text-primary" />
                 <input
                   type="text"
                   className="grow"
-                  placeholder="Nom du titulaire de la carte"
+                  placeholder="Email du titulaire"
                   disabled={false}
-                  {...register("cardName", {
+                  {...register("email", {
+                    required: "L'email est obligatoire",
+                    pattern: {
+                      value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                      message: "L'email doit être valide",
+                    },
+                    maxLength: {
+                      value: 50,
+                      message: "L'email est trop long",
+                    },
+                  })}
+                />
+              </label>
+              {errors.email && (
+                <span className="text-error text-xs">
+                  {errors.email.message}
+                </span>
+              )}
+
+
+              {/* Location */}
+              <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
+                <FaMapPin size={15} className="text-primary" />
+                <input
+                  type="text"
+                  className="grow"
+                  placeholder="Adresse de facturation"
+                  disabled={false}
+                  {...register("location", {
                     required: true,
-                    pattern: /^[A-Za-z\s]+$/,
+                    pattern: /^[a-zA-Z0-9\s,'-]*$/,
                     maxLength: 50,
                   })}
                 />
               </label>
-              {errors.cardName?.type === "pattern" && (
+              {errors.location?.type === "pattern" && (
                 <span className="text-error text-xs">
-                  Le nom du titulaire doit être composé de lettre uniquement
+                  L&apos;adresse de facturation doit être composée de lettre et de chiffres uniquement
                 </span>
               )}
-              {errors.cardName?.type === "required" && (
+              {errors.location?.type === "required" && (
                 <span className="text-error text-xs">
-                  Le nom du titulaire est obligatoire
+                  L&apos;adresse de facturation carte est obligatoire
                 </span>
               )}
-              {errors.cardName?.type === "maxLength" && (
+              {errors.location?.type === "maxLength" && (
                 <span className="text-error text-xs">
-                  Le nom du titulaire est trop long
+                  L&apos;adresse de facturation est trop longue
                 </span>
               )}
+              {/* City */}
 
+              Pour valider que le champ ne contient que des lettres, nous devons mettre à jour la pattern regex. Voici la version mise à jour du code :
 
-              {/* CardNumber */}
+              jsx
+              Copier le code
               <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
-                <FaCcVisa size={15} className="text-primary" />
+                <FaMapPin size={15} className="text-primary" />
                 <input
                   type="text"
                   className="grow"
-                  placeholder="Numéro de la carte"
+                  placeholder="Ville"
                   disabled={false}
-                  {...register("cardNumber", {
-                    required: true,
-                    pattern: /^[0-9]{16}$/,
+                  {...register("city", {
+                    required: "L'adresse de facturation est obligatoire",
+                    pattern: {
+                      value: /^[a-zA-Z\s-]*$/,
+                      message: "L'adresse de facturation doit être composée de lettres, d'espaces et de traits d'union uniquement"
+                    }
                   })}
                 />
               </label>
-              {errors.cardNumber?.type === "pattern" && (
+              {errors.city && (
                 <span className="text-error text-xs">
-                  Le numéro de la carte doit être composé de 16 chiffres
-                </span>
-              )}
-              {errors.cardNumber?.type === "required" && (
-                <span className="text-error text-xs">
-                  Le numéro de la carte est obligatoire
+                  {errors.city.message}
                 </span>
               )}
             </div>

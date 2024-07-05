@@ -48,4 +48,7 @@ export type FormInputsPaymentType = {
     cardName: string;
     expirationDate: string;
     cvv: string;
+    location: string;
+    postalCode: string;
+    city: string;
 };

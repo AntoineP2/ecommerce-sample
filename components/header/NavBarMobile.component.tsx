@@ -29,20 +29,20 @@ const NavBarMobile = () => {
     return (
         <div className="flex items-center justify-between gap-3 h-full w-full px-4">
 
-            <div className='flex items-center justify-center pl-2 active:scale-95 transition ease-in-out duration-150'>
+            <div className='flex items-center justify-center active:scale-95 transition ease-in-out duration-150'>
                 <button className='flex items-center justify-center' onClick={() => router.push("/")}>
                     <Image src={image} alt="Manga Shop" height={35} />
                 </button>
             </div>
 
-            <div className='flex gap-1 items-center justify-center pl-2 active:scale-95 transition ease-in-out duration-150'>
+            <div className='flex gap-1 items-center justify-center active:scale-95 transition ease-in-out duration-150'>
                 <button className='flex gap-1 items-center justify-center' onClick={openShop}>
                     <IoIosMenu size={40} />
                 </button>
 
             </div>
 
-            <div className='flex gap-1 items-center justify-center pl-2 active:scale-95 transition ease-in-out duration-150'>
+            <div className='flex gap-1 items-center justify-center active:scale-95 transition ease-in-out duration-150'>
                 <button className='flex gap-1 items-center justify-center'>
                     <IoIosSearch size={40} onClick={() => router.push("/recherche")} />
                 </button>
