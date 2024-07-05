@@ -17,7 +17,7 @@ const PaymentForm: React.FC = () => {
 
   return (
     <div className="w-screen flex justify-center items-center">
-      <div className="w-[800px] h-[800px] relative bg-black">
+      <div className="w-[800px] h-[800px] relative">
         <div>
           <p>Vos achats : {price} €</p>
         </div>
@@ -28,7 +28,7 @@ const PaymentForm: React.FC = () => {
             <div className="flex flex-col gap-2 w-full shadow-sm shadow-secondary px-2 py-2 rounded-lg ">
               <h2 className="text-secondary font-bold"> Informations de la carte</h2>
               {/* CardName */}
-              <label className="input input-bordered input-sm input-primary bg-base-300 flex items-center gap-2 w-full">
+              <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
                 <FaUser size={12} className="text-primary" />
                 <input
                   type="text"
@@ -58,7 +58,7 @@ const PaymentForm: React.FC = () => {
                 </span>
               )}
               {/* CardNumber */}
-              <label className="input input-bordered input-sm input-primary bg-base-300 flex items-center gap-2 w-full">
+              <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
                 <FaCcVisa size={15} className="text-primary" />
                 <input
                   type="text"
@@ -89,7 +89,7 @@ const PaymentForm: React.FC = () => {
                 {/* Expiration Date */}
                 <input
                   type="text"
-                  className="input input-bordered input-sm input-primary bg-base-300 flex items-center gap-2 w-full"
+                  className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full"
                   placeholder="Date d'expiration (MM/AA)"
                   disabled={false}
                   maxLength={5}
@@ -115,19 +115,19 @@ const PaymentForm: React.FC = () => {
                 />
                 {errors.expirationDate?.type === "pattern" && (
                   <span className="text-error text-xs">
-                    La date d'expiration doit être au format MM/AA
+                    La date d&apos;expiration doit être au format MM/AA
                   </span>
                 )}
                 {errors.expirationDate?.type === "required" && (
                   <span className="text-error text-xs">
-                    La date d'expiration est obligatoire
+                    La date d&apos;expiration est obligatoire
                   </span>
                 )}
 
                 {/* CVV */}
                 <input
                   type="text"
-                  className="input input-bordered input-sm input-primary bg-base-300 flex items-center gap-2 w-full"
+                  className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full"
                   placeholder="CVV"
                   maxLength={3}
                   disabled={false}
@@ -158,7 +158,7 @@ const PaymentForm: React.FC = () => {
             <div className="flex flex-col gap-2 w-full shadow-sm shadow-secondary px-2 py-2 rounded-lg ">
               <h2 className="text-secondary font-bold"> Informations facturation</h2>
               {/* CardName */}
-              <label className="input input-bordered input-sm input-primary bg-base-300 flex items-center gap-2 w-full">
+              <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
                 <FaUser size={12} className="text-primary" />
                 <input
                   type="text"
@@ -190,7 +190,7 @@ const PaymentForm: React.FC = () => {
 
 
               {/* CardNumber */}
-              <label className="input input-bordered input-sm input-primary bg-base-300 flex items-center gap-2 w-full">
+              <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
                 <FaCcVisa size={15} className="text-primary" />
                 <input
                   type="text"
