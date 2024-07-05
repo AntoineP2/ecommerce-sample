@@ -3,7 +3,7 @@
 import { useAppStore } from "@/lib/appStore"
 import { FormInputsPaymentType } from "@/lib/type";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { FaCcVisa, FaMapPin, FaUser } from "react-icons/fa";
+import { FaCcVisa, FaCity, FaMapPin, FaUser } from "react-icons/fa";
 import { IoMailSharp } from "react-icons/io5";
 
 const PaymentForm: React.FC = () => {
@@ -195,31 +195,26 @@ const PaymentForm: React.FC = () => {
                   placeholder="Adresse de facturation"
                   disabled={false}
                   {...register("location", {
-                    required: true,
-                    pattern: /^[a-zA-Z0-9\s,'-]*$/,
-                    maxLength: 50,
+                    required: "L'adresse de facturation est obligatoire",
+                    pattern: {
+                      value: /^[a-zA-Z0-9\s,'-]*$/,
+                      message: "L'adresse de facturation doit être composée de lettres, de chiffres, d'espaces, de virgules et de traits d'union uniquement"
+                    },
+                    maxLength: {
+                      value: 50,
+                      message: "L'adresse de facturation est trop longue"
+                    }
                   })}
                 />
               </label>
-              {errors.location?.type === "pattern" && (
+              {errors.location && (
                 <span className="text-error text-xs">
-                  L&apos;adresse de facturation doit être composée de lettre et de chiffres uniquement
+                  {errors.location.message}
                 </span>
               )}
-              {errors.location?.type === "required" && (
-                <span className="text-error text-xs">
-                  L&apos;adresse de facturation carte est obligatoire
-                </span>
-              )}
-              {errors.location?.type === "maxLength" && (
-                <span className="text-error text-xs">
-                  L&apos;adresse de facturation est trop longue
-                </span>
-              )}
-
               {/* City */}
               <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
-                <FaMapPin size={15} className="text-primary" />
+                <FaCity size={15} className="text-primary" />
                 <input
                   type="text"
                   className="grow"
@@ -237,6 +232,38 @@ const PaymentForm: React.FC = () => {
               {errors.city && (
                 <span className="text-error text-xs">
                   {errors.city.message}
+                </span>
+              )}
+
+              {/* postalCode */}
+              <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
+                <FaCity size={15} className="text-primary" />
+                <input
+                  type="text"
+                  className="grow"
+                  placeholder="Code postal"
+                  disabled={false}
+                  onInput={(e: React.FormEvent<HTMLInputElement>) => {
+                    const target = e.target as HTMLInputElement;
+                    target.value = target.value.replace(/[^0-9]/g, '');
+                  }}
+                  maxLength={5}
+                  {...register("postalCode", {
+                    required: "L'adresse de facturation est obligatoire",
+                    pattern: {
+                      value: /^[0-9]*$/,
+                      message: "Le code postal doit être commposé de chiffres uniquement"
+                    },
+                    maxLength: {
+                      value: 5,
+                      message: "Le code postal est trop long"
+                    }
+                  })}
+                />
+              </label>
+              {errors.postalCode && (
+                <span className="text-error text-xs">
+                  {errors.postalCode.message}
                 </span>
               )}
             </div>
