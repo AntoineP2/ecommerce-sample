@@ -216,12 +216,8 @@ const PaymentForm: React.FC = () => {
                   L&apos;adresse de facturation est trop longue
                 </span>
               )}
+
               {/* City */}
-
-              Pour valider que le champ ne contient que des lettres, nous devons mettre à jour la pattern regex. Voici la version mise à jour du code :
-
-              jsx
-              Copier le code
               <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
                 <FaMapPin size={15} className="text-primary" />
                 <input
