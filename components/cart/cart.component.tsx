@@ -5,8 +5,10 @@ import CartItem from "./cartItem.component";
 import { ProductCartType, ProductType } from "@/lib/type";
 import { useEffect, useState } from "react";
 import EmptyCart from "./EmptyCart.component";
+import { useRouter } from "next/navigation";
 
 const Cart = () => {
+  const router = useRouter();
   const { cartItemList, price } = useAppStore();
   const [cartItemsListGrouped, setCartItemsListGrouped] = useState<
     ProductCartType[]
@@ -40,7 +42,7 @@ const Cart = () => {
           <div className="bg-primary flex flex-col lg:w-[1000px] w-[90%] rounded-md shadow-lg">
             <div className="flex justify-between items-center text-xl max-md:text-lg font-bold pt-5 mx-5 text-gray-200">
               <p>Votre panier</p>
-              <button className="btn btn-success text-gray-200"> Passer la commande</button>
+              <button className="btn btn-success text-gray-200" onClick={() => router.push("/panier/paiment")}> Passer la commande</button>
             </div>
             <div className="divider"></div>
             {cartItemsListGrouped.map((item) => (
