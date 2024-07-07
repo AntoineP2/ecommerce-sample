@@ -25,7 +25,9 @@ type StateType = {
   cartItemList: ProductType[];
   setCartItemList: (cartItem: ProductType) => void;
   removeCartItem: (cartItem: ProductType) => void;
-  theme: ThemeType
+  theme: ThemeType;
+  paymentStep: number;
+  setPaymentStep: (step: number) => void;
 }
 
 const getInitialTheme = async (): Promise<ThemeType> => {
@@ -50,6 +52,8 @@ const useAppStore = create<StateType>((set) => ({
   currentProduct: null,
   currentSection: null,
   searchShopEntry: '',
+  paymentStep: 0,
+  setPaymentStep: (step: number) => set(() => ({ paymentStep: step })),
   setSearchShopEntry: (entry: string) => set(() => ({ searchShopEntry: entry })),
   setCurrentProduct: (product: ProductType) => set(() => ({ currentProduct: product })),
   setCurrentSection: (section: StoreSectionIconType) => set(() => ({ currentSection: section })),
@@ -68,16 +72,16 @@ const useAppStore = create<StateType>((set) => ({
     setCookie('theme', theme);
     return { theme };
   }),
-  setCartItemList : (cartItem: ProductType) => set((state) => 
-    ({
-      cartItemList : [...state.cartItemList, cartItem],
-      price: parseFloat((state.price + cartItem.price).toFixed(2))
+  setCartItemList: (cartItem: ProductType) => set((state) =>
+  ({
+    cartItemList: [...state.cartItemList, cartItem],
+    price: parseFloat((state.price + cartItem.price).toFixed(2))
   })),
-  removeCartItem : (cartItem: ProductType) => set((state) => 
-    ({
-      cartItemList : removeElement(state.cartItemList, cartItem, 1),
-      price: parseFloat((state.price - cartItem.price).toFixed(2))
-    })),
+  removeCartItem: (cartItem: ProductType) => set((state) =>
+  ({
+    cartItemList: removeElement(state.cartItemList, cartItem, 1),
+    price: parseFloat((state.price - cartItem.price).toFixed(2))
+  })),
 
 }));
 
@@ -94,7 +98,7 @@ const useInitializeTheme = () => {
 };
 
 // Cette methode va supprimer un nombre définit d'élément dans le panier selon l'id ciblé
-const removeElement = (cartItemList: ProductType[], cartItem:ProductType, number: number): ProductType[] => {
+const removeElement = (cartItemList: ProductType[], cartItem: ProductType, number: number): ProductType[] => {
   const itemList = cartItemList.filter(item => item.id === cartItem.id).slice(number);
   const itemListUpdate = [...cartItemList.filter(item => item.id !== cartItem.id), ...itemList]
   return itemListUpdate;

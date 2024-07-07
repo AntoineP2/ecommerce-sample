@@ -16,7 +16,6 @@ const Cart = () => {
 
   type CartItemsAccumulator = Record<number, ProductCartType>;
 
-  // Methode pour groupe les items avec le même ID
   const groupedCartItems = cartItemList.reduce<CartItemsAccumulator>(
     (acc, item) => {
       const key = item.id;
@@ -28,7 +27,6 @@ const Cart = () => {
     },
     {}
   );
-  console.log("ok");
 
   useEffect(() => {
     setCartItemsListGrouped(Object.values(groupedCartItems));

@@ -1,10 +1,9 @@
-import Cart from '@/components/cart/cart.component'
-import PaymentForm from '@/components/cart/PaymentForm.component'
+import PaymentValidation from '@/components/cart/validation/PaymentValidation.component'
 import React from 'react'
 
 const PaymentPage = () => {
   return (
-    <div><PaymentForm /></div>
+    <div><PaymentValidation /></div>
   )
 }
 

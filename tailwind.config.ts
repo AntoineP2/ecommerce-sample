@@ -53,9 +53,9 @@ const config: Config = {
           "neutral": "#2D2D2D",    // Gris foncé (pour les fonds et éléments neutres)
           "base-100": "#121212",   // Noir (pour le fond principal)
           "info": "#39CCCC",       // Bleu clair (pour les informations)
-          "success": "#2ECC40",    // Vert (pour les succès)
-          "warning": "#FFDC00",    // Jaune (pour les avertissements)
-          "error": "#FF4136"       // Rouge (pour les erreurs)
+          "success": "#24713C",    // Vert sombre (pour les succès)
+          "warning": "#B88600",    // Jaune sombre (pour les avertissements)
+          "error": "#B0302E"       // Rouge sombre (pour les erreurs)
         }
       },
     ],
