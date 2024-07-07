@@ -38,12 +38,12 @@ const getInitialTheme = async (): Promise<ThemeType> => {
   const savedTheme = await getCookie('theme');
 
   // Vérification stricte du type de thème
-  if (savedTheme === 'lightTheme' || savedTheme === 'darkTheme') {
+  if (savedTheme === 'darkTheme' || savedTheme === 'lightTheme') {
     return savedTheme;
   }
 
   // Retourner le thème par défaut si le thème n'est pas valide
-  return 'lightTheme';
+  return 'darkTheme';
 };
 
 const useAppStore = create<StateType>((set) => ({
@@ -51,7 +51,7 @@ const useAppStore = create<StateType>((set) => ({
   price: 0,
   showShop: false,
   showProductDetail: false,
-  theme: 'lightTheme',
+  theme: 'darkTheme',
   cartItemList: [],
   currentProduct: null,
   currentSection: null,
