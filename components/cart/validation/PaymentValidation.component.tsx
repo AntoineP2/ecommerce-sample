@@ -4,6 +4,8 @@ import { useAppStore } from "@/lib/appStore"
 import CartList from "./CartList.component"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
+import PaymentAdresseForm from "./PaymentAdresseForm.component"
+import PaymentCartForm from "./PaymentCartForm.component"
 
 const PaymentValidation = () => {
     const { paymentStep, price } = useAppStore()
@@ -24,8 +26,10 @@ const PaymentValidation = () => {
                     <li className={`step ${paymentStep >= 2 ? "step-primary" : ""} cursor-default`}>Paiment</li>
                 </ul>
             </div>
-            <div>
+            <div className="mt-10">
                 {paymentStep === 0 && <CartList />}
+                {paymentStep === 1 && <PaymentAdresseForm />}
+                {paymentStep === 2 && <PaymentCartForm />}
             </div>
         </div>
     )

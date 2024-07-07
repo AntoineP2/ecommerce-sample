@@ -7,10 +7,13 @@ type StateType = {
   count: number;
   showShop: boolean;
   showProductDetail: boolean;
+  successPayment: boolean;
   price: number;
   currentProduct: ProductType | null;
   currentSection: StoreSectionIconType | null;
   searchShopEntry: string;
+  openSuccessPayment: () => void;
+  closeSuccessPayment: () => void;
   setSearchShopEntry: (entry: string) => void;
   setCurrentProduct: (product: ProductType) => void;
   setCurrentSection: (section: StoreSectionIconType) => void;
@@ -25,6 +28,7 @@ type StateType = {
   cartItemList: ProductType[];
   setCartItemList: (cartItem: ProductType) => void;
   removeCartItem: (cartItem: ProductType) => void;
+  resetCartItemList: () => void;
   theme: ThemeType;
   paymentStep: number;
   setPaymentStep: (step: number) => void;
@@ -53,6 +57,9 @@ const useAppStore = create<StateType>((set) => ({
   currentSection: null,
   searchShopEntry: '',
   paymentStep: 0,
+  successPayment: false,
+  openSuccessPayment: () => set(() => ({ successPayment: true })),
+  closeSuccessPayment: () => set(() => ({ successPayment: false })),
   setPaymentStep: (step: number) => set(() => ({ paymentStep: step })),
   setSearchShopEntry: (entry: string) => set(() => ({ searchShopEntry: entry })),
   setCurrentProduct: (product: ProductType) => set(() => ({ currentProduct: product })),
@@ -82,6 +89,7 @@ const useAppStore = create<StateType>((set) => ({
     cartItemList: removeElement(state.cartItemList, cartItem, 1),
     price: parseFloat((state.price - cartItem.price).toFixed(2))
   })),
+  resetCartItemList: () => set(() => ({ cartItemList: [] }))
 
 }));
 

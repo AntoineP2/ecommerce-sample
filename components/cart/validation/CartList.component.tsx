@@ -29,7 +29,7 @@ const CartList = () => {
 
     return (
         <div className="flex flex-col gap-3 justify-center items-center">
-            <div className="mt-10">
+            <div>
                 <h1 className="text-xl font-bold text-accent">Récapitulation du Panier</h1>
             </div>
             <div className="bg-primary rounded-md px-5 py-2">

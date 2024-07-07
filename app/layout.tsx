@@ -6,6 +6,7 @@ import Header from "@/components/header/Header.component";
 import { Toaster } from "sonner";
 import StoreSectionModal from "@/components/modals/StoreSection.modal";
 import ProductDetailModal from "@/components/modals/ProductDetail.modal";
+import SuccessPaymentModal from "@/components/modals/SuccessPayment.modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
             <Header />
             <StoreSectionModal />
             <ProductDetailModal />
+            <SuccessPaymentModal />
           </div>
           <div className="pt-[100px] z-30 pb-[100px]">{children}</div>
           <Toaster richColors />

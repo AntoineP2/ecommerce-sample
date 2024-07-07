@@ -52,3 +52,18 @@ export type FormInputsPaymentType = {
     postalCode: string;
     city: string;
 };
+
+export type FormInputsPaymentAdresseType = {
+    location: string;
+    postalCode: string;
+    city: string;
+    email: string;
+};
+
+export type FormInputsPaymentCartType = {
+    email: string;
+    cardNumber: string;
+    cardName: string;
+    expirationDate: string;
+    cvv: string;
+};
