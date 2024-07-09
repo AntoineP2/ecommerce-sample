@@ -81,10 +81,10 @@ const Shop = () => {
         <div className="flex flex-col justify-center md:pl-10 pl-5">
           <div className="breadcrumbs text-sm">
             <ul>
-              <li className="hover:underline hover:font-bold hover:text-accent">
+              <li className="hover:underline hover:font-bold">
                 <button onClick={openShop}>Magasin</button>
               </li>
-              <li className="hover:underline hover:font-bold hover:text-accent">
+              <li className="hover:underline hover:font-bold">
                 <button onClick={() => router.push(`/magasin/${lastPart}`)}>
                   {storeSection?.title}
                 </button>

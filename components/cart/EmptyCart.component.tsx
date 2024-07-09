@@ -11,9 +11,11 @@ const EmptyCart = () => {
         <p className="text-gray-200">Votre panier est vide</p>
         <p className="text-gray-200">
           <span className="hover:text-accent transition duration-150 ease-in-out font-bold max-md:text-accent">
-            <button onClick={openShop}>Cliquez ici </button>
+            <button onClick={openShop}>Cliquez ici</button>
           </span>
-          pour poursuivre vos achats
+          {" "}pour poursuivre vos achats
+
+
         </p>
       </div>
     </div>
