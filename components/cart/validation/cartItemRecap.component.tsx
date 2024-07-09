@@ -38,12 +38,12 @@ const CartItemRecap: React.FC<CartItemProps> = ({ cartItem }) => {
 
   return (
     <>
-      <div className="relative justify-start bg-primary p-5 rounded-lg gap-3">
+      <div className="relative justify-start bg-base-100 p-5 rounded-lg gap-3">
         <div className="max-md:scale-90">
           <div className="flex justify-start items-center gap-3">
-            <p className="font-bold text-lg text-secondary w-[10px]">{cartItem.quantity} </p>
+            <p className=" text-lg w-[10px]">{cartItem.quantity} </p>
             <div className="divider divider-horizontal"></div>
-            <p className="font-bold text-lg text-secondary w-[200px] flex-wrap">{cartItem.title}</p>
+            <p className=" text-lg w-[200px] flex-wrap">{cartItem.title}</p>
             <div className="divider divider-horizontal"></div>
             <p className="font-bold text-smt">{cartItem.price * cartItem.quantity} €</p>
           </div>

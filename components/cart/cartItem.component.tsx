@@ -38,36 +38,36 @@ const CartItem: React.FC<CartItemProps> = ({ cartItem }) => {
 
   return (
     <>
-      <div className="relative w-full h-[200px] flex justify-start bg-primary p-5 rounded-lg gap-3 ">
+      <div className="relative w-full h-[200px] flex justify-start bg-base-100 p-5 rounded-lg gap-3 ">
         <div className="flex justify-start items-center max-md:scale-75">
           <Image src={cartItem.imagePath} width={100} alt="Tome One piece" />
           <div className="divider divider-horizontal"></div>
         </div>
         <div className="max-md:scale-90">
           <div className="">
-            <p className="font-bold text-accent">{cartItem.title}</p>
+            <p className="font-bold text-lg">{cartItem.title}</p>
           </div>
           <div>
-            <p className="text-gray-200">{cartItem.description}</p>
+            <p className="">{cartItem.description}</p>
           </div>
         </div>
         <div className="absolute bottom-2 right-5 flex justify-center items-center gap-3 max-md:scale-75">
           <button
-            className="btn btn-error max-md:btn-sm"
+            className="btn btn-outline max-md:btn-sm"
             onClick={handleRemoveItem}
           >
             -
           </button>
           <p>{cartItem.quantity}</p>
           <button
-            className="btn btn-success max-md:btn-sm"
+            className="btn btn-outline max-md:btn-sm"
             onClick={handleAddItem}
           >
             +
           </button>
         </div>
         <div className="absolute md:top-2 md:right-5 max-md:bottom-2 max-md:left-5 flex justify-center items-center gap-3 max-md:scale-75">
-          <p className="font-bold text-lg text-success"> {cartItem.price * cartItem.quantity} €</p>
+          <p className="font-bold text-lg"> {cartItem.price * cartItem.quantity} € </p>
         </div>
       </div>
     </>

@@ -80,7 +80,7 @@ const NavBarDesktop = () => {
             onClick={() => router.push("/panier")}
           >
             <div className="indicator">
-              <span className="indicator-item badge badge-secondary">
+              <span className="indicator-item badge badge-primary">
                 {cartItemList.length}
               </span>
               <CiShoppingBasket

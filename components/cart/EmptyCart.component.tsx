@@ -1,11 +1,9 @@
 "use client";
 
 import { useAppStore } from "@/lib/appStore";
-import { useRouter } from "next/navigation";
 
 const EmptyCart = () => {
-  const router = useRouter();
-  const {openShop} = useAppStore()
+  const { openShop } = useAppStore()
 
   return (
     <div className="w-[800px] max-md:w-[90%] h-[300px] bg-primary shadow-primary shadow-lg flex justify-center items-center mt-24">
@@ -14,7 +12,7 @@ const EmptyCart = () => {
         <p className="text-gray-200">
           <span className="hover:text-accent transition duration-150 ease-in-out font-bold max-md:text-accent">
             <button onClick={openShop}>Cliquez ici </button>
-          </span>{" "}
+          </span>
           pour poursuivre vos achats
         </p>
       </div>

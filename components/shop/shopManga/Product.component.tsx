@@ -1,16 +1,14 @@
 "use client";
-import { useEffect } from "react";
 import Image from "next/image";
 import Rating from "@/components/Rating.component";
-import { MdAddShoppingCart } from "react-icons/md";
 import { IoMdInformationCircleOutline } from "react-icons/io";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { ProductType } from "@/lib/type";
 import { useAppStore } from "@/lib/appStore";
 import { toast } from "sonner";
-import ProductDetailModal from "@/components/modals/ProductDetail.modal";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { CiShoppingBasket } from "react-icons/ci";
 
 interface ProductProps {
   product: ProductType;
@@ -56,7 +54,7 @@ const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
       variants={variants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className={`relative w-[350px] h-[450px] bg-primary border border-${colorBgHeader !== undefined ? colorBgHeader : "primary"} shadow-lg flex flex-col p-5 rounded-lg gap-3`}
+      className={`relative w-[350px] h-[450px] bg-base-100 border border-${colorBgHeader !== undefined ? colorBgHeader : "primary"} shadow-lg flex flex-col p-5 rounded-lg gap-3`}
     >
       <div className="flex justify-center items-center">
         <Image
@@ -69,22 +67,22 @@ const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
       </div>
       <div className="flex justify-center items-center gap-2">
         <Rating rating={product.rating} />
-        <p className="text-gray-200 text-sm">({product.votes})</p>
+        <p className="text-sm">({product.votes})</p>
       </div>
       <div>
-        <p className="text-gray-200 pt-4">
-          <span className="font-bold text-accent">{product.title}</span>,{" "}
+        <p className="pt-4">
+          <span className="font-bold text-lg">{product.title}</span>,{" "}
           {product.description}
         </p>
       </div>
       <div className="flex justify-between items-center absolute bottom-2 left-0 w-full pb-1 px-5">
         <div>
-          <p className="font-bold text-lg text-success"> {product.price} €</p>
+          <p className={`font-bold text-lg`}> {product.price} €</p>
         </div>
         <div className="flex justify-center items-center gap-3">
           <button className="max-md:active:scale-95 md:hover:scale-105 transition duration-150 ease-in-out">
             <IoMdInformationCircleOutline
-              size={35}
+              size={40}
               className="text-accent"
               onClick={handleOpenDetail}
             />
@@ -93,8 +91,8 @@ const Product: React.FC<ProductProps> = ({ product, colorBgHeader }) => {
             className="max-md:active:scale-95 md:hover:scale-105 transition duration-150 ease-in-out"
             onClick={handleAddProduct}
           >
-            <div className="flex justify-center items-center w-[60px] h-[60px] rounded-full bg-secondary text-gray-200">
-              <MdAddShoppingCart size={30} />
+            <div className={`flex justify-center items-center w-[50px] h-[50px] rounded-full bg-${colorBgHeader !== undefined ? colorBgHeader : "primary"}`}>
+              <CiShoppingBasket size={30} />
             </div>
           </button>
         </div>

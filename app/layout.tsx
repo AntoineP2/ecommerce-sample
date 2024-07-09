@@ -24,13 +24,15 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} h-screen overflow-x-hidden`}>
         <ThemeProvider>
-          <div className="w-screen h-[70px] shadow-lg bg-base-100 mb-20 md:py-5 fixed z-50">
-            <Header />
-            <StoreSectionModal />
-            <ProductDetailModal />
-            <SuccessPaymentModal />
+          <div className="bg-base-300 h-screen">
+            <div className="w-screen h-[70px] shadow-lg bg-base-100 mb-20 md:py-5 fixed z-50">
+              <Header />
+              <StoreSectionModal />
+              <ProductDetailModal />
+              <SuccessPaymentModal />
+            </div>
+            <div className="pt-[100px] z-30 pb-[100px] bg-base-300">{children}</div>
           </div>
-          <div className="pt-[100px] z-30 pb-[100px]">{children}</div>
           <Toaster richColors />
         </ThemeProvider>
       </body>

@@ -20,13 +20,13 @@ const PaymentCartForm = () => {
     return (
         <div className="w-screen flex flex-col justify-center items-center">
             <div>
-                <h1 className="text-xl font-bold text-accent">Informations de la carte</h1>
+                <h1 className="text-xl font-bold">Informations de la carte</h1>
             </div>
             <div className="w-[800px] h-[800px] relative max-md:w-full mt-5">
                 <form onSubmit={handleSubmit(onSubmit)} className="flex justify-center">
                     <div className="w-[80%] max-md:w-[90%] flex flex-col justify-center items-center gap-5">
                         {/* CardName, CardNumber, CVV, ExpiredDate */}
-                        <div className="flex flex-col gap-2 w-full shadow-sm shadow-secondary px-2 py-2 rounded-lg ">
+                        <div className="flex flex-col gap-2 w-full shadow-sm px-2 py-2 rounded-lg bg-base-100 ">
                             {/* CardName */}
                             <label className="input input-bordered input-sm input-primary bg-base-200 flex items-center gap-2 w-full">
                                 <FaUser size={15} className="text-primary" />
@@ -159,8 +159,8 @@ const PaymentCartForm = () => {
                         </div>
 
                         <div className="flex justify-between items-center w-full">
-                            <div className="btn btn-error w-[200px]" onClick={() => setPaymentStep(1)}>Annuler</div>
-                            <button className="btn btn-success w-[200px]">Valider</button>
+                            <div className="btn  btn-primary w-[200px]" onClick={() => setPaymentStep(1)}>Annuler</div>
+                            <button className="btn btn-primary w-[200px]">Valider</button>
                         </div>
                     </div>
                 </form>

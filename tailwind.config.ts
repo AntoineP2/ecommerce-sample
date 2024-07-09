@@ -28,7 +28,19 @@ const config: Config = {
     'shadow-yellow-800', 'shadow-yellow-400',
     'shadow-gray-800', 'shadow-gray-400',
     'shadow-red-800', 'shadow-red-400',
-    '-left-full', 'left-full'
+    '-left-full', 'left-full',
+    'bg-orange-800', 'bg-orange-400',
+    'bg-blue-800', 'bg-blue-400',
+    'bg-yellow-800', 'bg-yellow-400',
+    'bg-gray-800', 'bg-gray-400',
+    'bg-red-800', 'bg-red-400',
+    'bg-primary',
+    'text-orange-800', 'text-orange-400',
+    'text-blue-800', 'text-blue-400',
+    'text-yellow-800', 'text-yellow-400',
+    'text-gray-800', 'text-gray-400',
+    'text-red-800', 'text-red-400',
+    'text-primary',
   ],
   daisyui: {
     themes: [
@@ -47,7 +59,7 @@ const config: Config = {
       },
       {
         darkTheme: {
-          "primary": "#1E3A8A",    // Bleu
+          "primary": "#233d87",    // Bleu
           "secondary": "#9B59B6",  // Violet
           "accent": "#FF851B",     // Orange (complémentaire)
           "neutral": "#2D2D2D",    // Gris foncé (pour les fonds et éléments neutres)

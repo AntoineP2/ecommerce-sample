@@ -1,11 +1,11 @@
 import React from 'react';
-import Counter from '@/components/Counter.component';
+import Building from '@/components/Building.component';
 
 const UserAccountPage: React.FC = () => {
 
   return (
     <div>
-      <Counter />
+      <Building />
     </div>
   );
 };
