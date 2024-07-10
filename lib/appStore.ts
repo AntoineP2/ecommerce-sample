@@ -89,7 +89,7 @@ const useAppStore = create<StateType>((set) => ({
     cartItemList: removeElement(state.cartItemList, cartItem, 1),
     price: parseFloat((state.price - cartItem.price).toFixed(2))
   })),
-  resetCartItemList: () => set(() => ({ cartItemList: [] }))
+  resetCartItemList: () => set(() => ({ cartItemList: [], price: 0 }))
 
 }));
 
